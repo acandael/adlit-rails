@@ -1,0 +1,21 @@
+<section class="admin">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <a href="javascript:void(0)">Publications</a>
+  </div>
+  <header>
+    <h1><i class="fa fa-file"></i>Publications</h1>
+  </header>
+  <%= button_to "Add New Publication", new_admin_publication_path, method: "get" %>
+  <table class="tables">
+    <tbody>
+      <% @publications.each do |publication| %>
+        <tr>
+          <td><%= link_to publication.title, admin_publication_path(publication) %></td>
+          <td><%= link_to 'Edit', edit_admin_publication_path(publication) %> | <%= link_to 'Delete', admin_publication_path(publication), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+

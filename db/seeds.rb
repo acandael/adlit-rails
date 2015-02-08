@@ -63,3 +63,29 @@ Member.create!([
   }
 ])
 
+Category.create!([
+  {
+    name: 'deliverables'
+  },
+  {
+    name: 'wetenschappelijke output'
+  },
+  {
+    name: 'valorisatie output'
+  },
+  {
+    name: 'presentaties'
+  }
+])
+
+Publication.create!([
+  {
+    title: 'Deliverable 1.1 Rapport rond mediabezit en -gebruik van minderjarigen',
+    category_id: 1
+  },
+  {
+    title: 'Het mediabezit en -gebruik bij minderjarigen anno 2014: de rol van de socio-economische status',
+    category_id: 2
+  }
+])
+

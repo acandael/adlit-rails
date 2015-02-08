@@ -1,0 +1,35 @@
+<%= form_for [:admin, @publication], :html => { class: "admin-add" } do |f| %>
+  <header>
+    <h1><i class="fa fa-user"></i>
+      <% if @publication.new_record? %>
+        New Publication</h1>
+      <% else %>
+        Edit Publication 
+      <% end %>
+    </h1>
+  </header>
+  <%= render "shared/errors", object: @publication %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :category_id, "Category" %>
+    <%= f.select :category_id, options_for_categories, label: "Category" %>
+  </div>
+  <div>
+    <%= f.label :document %>
+    <%= f.attachment_field :document %>
+    <% if @publication.document_id? %>
+      <div class="attachment">
+      <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@publication, :document)%>
+      </div>
+      <%= f.check_box :remove_document %>
+      <%= f.label :remove_document %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+

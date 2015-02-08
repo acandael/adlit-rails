@@ -1,0 +1,26 @@
+<section class="admin-show">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <%= link_to "All Publications", admin_publications_path %>
+    <a href="#"><%= @publication.title %></a> 
+  </div>
+  <article>
+    <div class="property">
+      <p><strong>Title:</strong></p>
+      <p><%= @publication.title %></p>
+    </div>
+    <div>
+      <p><strong>Category:</strong></p>
+      <p><%= @publication.category.name %></p>
+    </div>
+    <div class="property attachment">
+      <% if @publication.document_id? %>
+      <p><strong>Document:</strong></p>
+      <p>
+        <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@publication, :document) %>
+      </p>
+      <% end %>
+    </div>
+  </article>
+</section>
+

@@ -1,0 +1,21 @@
+<section class="team">
+  <div class="intro">
+    <header>
+      <h1>AdLit Team</h1>
+      <p>The AdLit project is coordinated by Ghent University and unites three Flemish Universities.<br />Check out the stakeholders</p> 
+    </header>
+  </div>
+  <div class="members">
+    <% @members.each do |member| %>
+      <div class="member" data-mh="block">
+        <%= link_to member_path(member) do %>
+          <%= image_tag attachment_url(member, :image, :fill, 250, 250) %> 
+        <% end %>
+        <h2><%= link_to member.name, member_path(member) %></h2>
+        <p><%= member.affiliation %><br /><%= member.organization %></p>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+

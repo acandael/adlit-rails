@@ -5,7 +5,7 @@ def member_attributes(overrides = {})
     image: "liselot-hudders.jpg",
     email: "liselot.hudders@ugent.be",
     phone: "09 264 91 89",
-    organisation: "Universiteit Gent",
+    organization: "Universiteit Gent",
     address: "Vakgroep Communicatiewetenschappen Korte Meer 11,                                     9000 Gent",
     affiliation: "Center for Persuasive Communication",
     link: "http://www.cepec.ugent.be"

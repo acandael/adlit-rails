@@ -33,3 +33,33 @@ NewsArticle.create!([
   }
 ])
 
+Member.create!([
+  {
+    name: 'Liselot Hudders',
+    email: 'liselot.hudders@ugent.be',
+    phone: '09 264 91 89',
+    organization: 'Universiteit Gent',
+    address: %{Vakgroep Communicatiewetenschappen Korte Meer 11,                                     9000 Gent}.squish,
+    affiliation: 'Center for Persuasive Communication',
+    link: 'http://www.cepec.ugent.be'
+  },
+  {
+    name: 'Katarina Panic',
+    email: 'katarina.panic@ugent.be',
+    phone: '32 9 264 67 98',
+    organization: 'Universiteit Antwerpen',
+    address: %{Department of Media Studies, 9000 Gent}.squish,
+    affiliation: 'Center for Journalism Studies',
+    link: 'http://www.cjs.ugent.be'
+  },
+  {
+    name: 'Pieter De Pauw Panic',
+    email: 'pieter.depauw@ugent.be',
+    phone: '32 9 264 34 56',
+    organization: 'Katholieke Universiteit Leuven',
+    address: %{Departement of Marketing, 3000 Leuven}.squish,
+    affiliation: 'Center for Marketing Studies',
+    link: 'http://www.cjs.ugent.be'
+  }
+])
+

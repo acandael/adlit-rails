@@ -1,0 +1,25 @@
+<article class="researcher">
+  <header>
+    <h1><%= @member.name %></h1>
+    <p><strong><%= @member.function %></strong></p>
+  </header>
+  <aside>
+    <%= image_tag attachment_url(@member, :image, :fill, 250, 250) %>
+  </aside>
+  <div class="content">
+    <div class="contact">
+      <h2>Contact</h2>
+      <p>
+      <i class="fa fa-envelope"></i><%= mail_to @member.email %><br />
+      <i class="fa fa-phone"></i><a href="tel:<%= @member.phone %>"><%= @member.phone %></a><br />
+      <i class="fa fa-map-marker"></i><strong><%= @member.organization %></strong><br />
+      <%= @member.address %> 
+      </p>
+    </div>
+    <div class="affiliation">
+      <h2>Affiliatie</h2>
+      <p><i class="fa fa-link"></i><%= link_to @member.affiliation, @member.link %></p>
+    </div>
+  </div>
+</article>
+

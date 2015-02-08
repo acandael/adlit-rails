@@ -13,7 +13,7 @@
   <section class="news-summary">
     <div class="grid-items">
       <% @news_articles.each do |article| %>
-        <%= link_to admin_news_article_path(article), class: "grid-item" do %> 
+        <%= link_to news_article_path(article), class: "grid-item" do %> 
           <%= image_tag attachment_url(article, :image, :fill, 150, 150) %>
           <h1><%= article.title %></h1>
         <% end %>

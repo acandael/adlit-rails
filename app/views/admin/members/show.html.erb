@@ -1,0 +1,44 @@
+<section class="admin-show">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <%= link_to "All Members", admin_members_path %>
+    <a href="#"><%= @member.name %></a> 
+  </div>
+  <article>
+    <div class="property">
+      <p><strong>Name:</strong></p>
+        <p><%= @member.name %></p>
+    </div>
+    <div class="property">
+      <p><strong>Function:</strong></p>
+      <p><%= @member.function %></p>
+    </div>
+    <div class="property">
+      <p><strong>Image:</strong></p>
+      <p>
+        <%= image_tag attachment_url(@member, :image, :fill, 250, 250) %>
+      </p>
+    </div>
+    <div class="property">
+      <p><strong>Email:</strong></p>
+      <p><%= mail_to @member.email %></p>
+    </div>
+    <div class="property">
+      <p><strong>Phone:</strong></p>
+      <p><%= @member.phone %></p>
+    </div>
+    <div class="property">
+      <p><strong>Address:</strong></p>
+      <p><%= @member.address %></p>
+    </div>
+    <div class="property">
+      <p><strong>Organization</strong></p>
+      <p><%= @member.organization %></p>
+    </div>
+    <div class="property">
+      <p><strong>Affiliation:</strong></p>
+      <p><%= link_to @member.affiliation, @member.link %></p>
+    </div>
+  </article>
+</section>
+

@@ -1,0 +1,87 @@
+article.researcher {
+  padding-top: em(24);
+  margin-bottom: em(36);
+  @include media($large-screen) {
+    @include span-columns(7);
+    @include shift(3);
+    margin-top: em(80);
+    padding-top: 0;
+  }
+
+  aside {
+    text-align: center;
+    margin-bottom: em(40);
+    @include media($large-screen) {
+      @include span-columns(4);
+      @include shift(8);
+    }
+  }
+
+  header {
+    text-align: center;
+    @include media($large-screen) {
+      text-align: left;
+    }
+    margin-top: em(36);
+    margin-bottom: em(36);
+  }
+
+  .content {
+    @include media($large-screen) {
+      @include span-columns(8);
+      @include shift(-12);
+    }
+
+    @include media($portrait-screen) {
+      @include shift(4);
+    }
+  }
+
+  img {
+    @include media($large-screen) {
+    margin-top: em(50);
+    }
+    border-radius: 3px;
+  }
+
+  h1 {
+    font-size: $base-font-size * 1.6;
+    @include media($large-screen) {
+      font-size: $base-font-size * 2.5;
+      text-align: left;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $base-font-size * 1.3;
+    margin-bottom: em(10.667);
+    @include media($large-screen) {
+      text-align: left;
+    }
+
+    @include media($portrait-screen) {
+      text-align: left;
+    }
+  }
+
+  p {
+    line-height: 2em;
+    @include media($large-screen) {
+      font-size: $base-font-size * 1.1;
+    }
+  }
+
+  a {
+    &:hover {
+      color: $base-accent-color;
+    }
+  }
+}
+
+.affiliation {
+  margin-top: em(60);
+}
+
+
+

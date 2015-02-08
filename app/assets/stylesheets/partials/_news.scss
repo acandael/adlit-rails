@@ -1,0 +1,77 @@
+section.news {
+  margin-bottom: em(36);
+  @include outer-container;
+}
+
+.articles {
+  @include span-columns(9);
+}
+
+
+article.news-item {
+
+  margin-left: 0;
+
+  margin-top: em(36);
+
+
+  header {
+    margin-bottom: em(16);
+  }
+
+
+  
+  h1 {
+    font-size: $base-font-size * 1;
+    @include media($large-screen) {
+      font-size: $base-font-size * 1.3;
+    }
+    text-align: left;
+    margin-bottom: em(5);
+  }
+
+  .content {
+    @include span-columns(6 of 9)
+  }
+
+  aside {
+    @include span-columns(3 of 9);
+    margin-bottom: em(24);
+  }
+}
+
+.twitter {
+  padding-left: em(24);
+  @include media($large-screen) {
+    @include span-columns(3);
+  }
+
+  h2 {
+    text-align: center;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #DDD;
+    font-size: $base-font-size;
+  }
+
+  img {
+    @include media($large-screen) {
+    float: left;
+    margin-right: em(16);
+    }
+  }
+
+  p {
+    font-size: $base-font-size * .8;
+  }
+}
+
+.tweet {
+  margin-top: em(24);
+  padding-top: em(24);
+  margin-bottom: em(24);
+}
+
+
+
+
+

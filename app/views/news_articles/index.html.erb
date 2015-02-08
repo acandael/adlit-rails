@@ -1,0 +1,49 @@
+<section class="news">
+  <div class="intro">
+    <header>
+      <h1>AdLit Nieuws</h1>
+    </header>
+  </div>
+  <div class="articles">
+    <% @news_articles.each do |article| %>
+      <article class="news-item">
+        <aside>
+          <%= image_tag attachment_url(article, :image, :fill, 282, 153) %> 
+        </aside>
+        <div class="content">
+          <header>
+            <h1><%= article.title %></h1>
+            <p class="date"><time datetime="<%= article.created_at %>"><%= article.created_at.strftime('%d %B %Y') %></time></p>
+          </header>
+          <p class="summary"><%= truncate(article.body, length: 150, separator: ' ') %>&nbsp;&nbsp;<%= link_to "Lees Meer", news_article_path(article), class: "underline" %>
+        </p>
+        </div>
+      </article>
+    <% end %>
+  </div>
+  <div class="twitter">
+    <h2>Tweets</h2>
+    <div class="tweet">
+      <img src="/images/margaret_tuite.jpg" alt="margaret tuite" />
+      <p>Margaret Tuite<br />@MargaretTuite1</p>
+      <p>@Europarl_EN #childrights European Parliament adopts comprehensive  resolution 27.11.2014 on the rights of the child <a href="#">http://www.europarl.europa.eu ...</a></p>
+    </div>
+    <div class="tweet">
+      <img src="/images/margaret_tuite.jpg" alt="margaret tuite" />
+      <p>Margaret Tuite<br />@MargaretTuite1</p>
+      <p>@Europarl_EN #childrights European Parliament adopts comprehensive  resolution 27.11.2014 on the rights of the child <a href="#">http://www.europarl.europa.eu ...</a></p>
+    </div>
+    <div class="tweet">
+      <img src="/images/margaret_tuite.jpg" alt="margaret tuite" />
+      <p>Margaret Tuite<br />@MargaretTuite1</p>
+      <p>@Europarl_EN #childrights European Parliament adopts comprehensive  resolution 27.11.2014 on the rights of the child <a href="#">http://www.europarl.europa.eu ...</a></p>
+    </div>
+    <div class="tweet">
+      <img src="/images/margaret_tuite.jpg" alt="margaret tuite" />
+      <p>Margaret Tuite<br />@MargaretTuite1</p>
+      <p>@Europarl_EN #childrights European Parliament adopts comprehensive  resolution 27.11.2014 on the rights of the child <a href="#">http://www.europarl.europa.eu ...</a></p>
+    </div>
+  </div>
+</section>
+
+

@@ -1,11 +1,5 @@
 section.admin {
   @include outer-container;
-  padding-top: em(300);
-  header {
-    h1 {
-      font-size: $base-font-size * 4;
-    }
-  }
   nav.admin {
     @include span-columns(8);
     @include shift(2);

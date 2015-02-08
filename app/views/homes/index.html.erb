@@ -1,0 +1,131 @@
+  <style>
+    body, html {
+      margin: 0;
+      overflow: hidden;
+      -webkit-transition: opacity 400ms;
+      -moz-transition: opacity 400ms;
+      transition: opacity 400ms;
+    }
+
+    body, .onepage-wrapper, html {
+      display: block;
+      position: static;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .onepage-wrapper {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: relative;
+      padding: 0;
+    }
+
+    .onepage-wrapper .section {
+      width: 100%;
+      height: 100%;
+    }
+
+    .onepage-pagination {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      z-index: 5;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .onepage-pagination li {
+      padding: 0;
+      text-align: center;
+    }
+    .onepage-pagination li a{
+      padding: 10px;
+      width: 4px;
+      height: 4px;
+      display: block;
+      
+    }
+    .onepage-pagination li a:before{
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(0,0,0,0.85);
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+    }
+
+    .onepage-pagination li a.active:before{
+      width: 10px;
+      height: 10px;
+      background: none;
+      border: 1px solid black;
+      margin-top: -4px;
+      left: 8px;
+    }
+  </style>
+  <div class="main">
+  <section class="home">
+    <div class="hero">
+      <h1>AdLit, een onderzoeksproject rond reclamewijsheid bij minderjarigen</h1>
+    </div>
+    <div class="cta">
+      <form action="#info" method="get">
+        <button>Ontdek het project</button>
+      </form>
+    </div>
+  </section>
+  <section class="news-summary">
+    <div class="grid-items">
+      <% @news_articles.each do |article| %>
+        <%= link_to admin_news_article_path(article), class: "grid-item" do %> 
+          <%= image_tag attachment_url(article, :image, :fill, 150, 150) %>
+          <h1><%= article.title %></h1>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="more-news">
+      <p class="read-more"><a href="/news.html" class="underline">Meer nieuws &amp events</a></p>
+  </div>
+  </section>
+  <section class="info">
+    <div class="boxes">
+      <div class="box">
+        <p class="icon"><i class="fa fa-users large"></i></p>
+        <h2><a href="/team.html" class="underline">Wie zijn we?</a></h2>
+        <p>Non-profit an public affairs organizations need to communicate their message with a loud and clear voice</p>
+      </div>
+      <div class="box">
+        <p class="icon"><i class="fa fa-suitcase large"></i></p>
+        <h2><a href="/project.html" class="underline">Wat doen we?</a></h2>
+        <p>You’ll be hard-pressed to find a team more experienced building brands and websites for Democratic political campaigns. We’re design trend-setters and know political tech inside and out.</p>
+      </div>
+      <div class="box">
+        <p class="icon"><i class="fa fa-newspaper-o large"></i></p>
+        <h2><a href="/output.html" class="underline">Rapporten en Publicaties</a></h2>
+        <p>We partner with agencies all the time to expand their services for their own clients. We fit in seamlessly. We can also do the same with your startup to get your big idea from “dream” to “reality”.</p>
+      </div>
+      <div class="box">
+        <p class="icon"><i class="fa fa-university large"></i></p>
+        <h2><a href="/output.html" class="underline">Valorizatie</a></h2>
+        <p>We can leverage our extensive experience in design, tech and brand strategy to promote your idea or product. Whether it’s a campaign, an org or you’re just selling a widget, the goal of our services is always the same: to inspire.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+$(document).ready(function() {
+  $(".main").onepage_scroll({
+     sectionContainer: "section", 
+     easing: "ease",
+     animationTime: 1000,
+     pagination: true,
+     updateURL: false
+  });
+});
+</script>
+

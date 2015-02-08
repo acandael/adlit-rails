@@ -1,0 +1,122 @@
+section {
+  padding-top: em(54);
+  margin-right: em(16);
+  @include media($large-screen) {
+    padding-top: em(121);
+    margin-bottom: em(81);
+  }
+
+  @include media($landscape-screen) {
+    margin-left: em(24);
+    margin-right: em(24);
+  }
+}
+
+article {
+  margin-left: em(24);
+  margin-right: em(16);
+  @include media($large-screen) {
+    @include outer-container;
+  }
+
+  @include media($landscape-screen) {
+    padding-left: em(24);
+    padding-right: em(24);
+  }
+}
+
+header {
+  @include media($large-screen) {
+    margin-bottom: em(36);
+  }
+
+  @include media($portrait-screen) {
+    margin-bottom: em(24);
+  }
+}
+
+#wrapper {
+  @include outer-container;
+}
+
+// links
+a {
+  color: $dark-gray;
+  
+  &:hover {
+    color: $dark-gray;
+  }
+
+  &.underline {
+    padding-bottom: 2px;
+    border-bottom: 2px solid $base-accent-color;
+  }
+}
+
+// titles
+h1 {
+  color: $dark-gray;
+  text-align: center;
+}
+
+// icons
+
+i {
+  color: $light-green;
+  margin-right: em(16);
+  &.large
+  {
+    font-size: 2em;
+    @include media($large-screen) {
+      font-size: 3em;
+      margin-right: 0;
+    }
+  }
+}
+
+.intro {
+  margin-bottom: em(54);
+  @include media($large-screen) {
+    margin-bottom: em(81);
+  }
+  @include media($portrait-screen) {
+    padding-left: em(36);
+  }
+  h1 {
+    margin-bottom: em(16);
+    @include media($large-screen) {
+      margin-bottom: em(24);
+    }
+  }
+  p {
+    @include media($large-screen) {
+      font-size: $base-font-size * 1.3;
+    }
+  }
+
+  header {
+    margin-bottom: em(24);
+  }
+}
+
+// text
+
+p.date {
+  text-transform: uppercase;
+  font-size: $base-font-size * .8;
+  letter-spacing: 2px;
+}
+
+p.read-more {
+  font-weight: 600;
+}
+
+// lists
+
+li {
+  margin-top: em(10);
+  margin-bottom: em(10);
+}
+
+
+

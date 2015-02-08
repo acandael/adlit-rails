@@ -1,0 +1,16 @@
+/*
+ *= require font-awesome
+*/
+
+@import "bourbon";
+@import "base/base";
+@import "neat";
+
+@import "partials/layout";
+@import "partials/flashes";
+@import "partials/tables";
+@import "partials/breadcrumb";
+
+@import "partials/admin";
+@import "partials/admin-add";
+@import "partials/admin-show";

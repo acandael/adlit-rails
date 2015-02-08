@@ -1,0 +1,22 @@
+<section class="admin">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <a href="javascript:void(0)">News Articles</a>
+  </div>
+  <header>
+    <h1><i class="fa fa-newspaper-o"></i>News Articles</h1>
+  </header>
+  <%= button_to "Add News Article", new_admin_news_article_path, method: "get" %>
+  <table class="tables">
+    <tbody>
+      <% @news_articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, admin_news_article_path(article) %></td>
+          <td><%= link_to "Edit", edit_admin_news_article_path(article) %>  | <%= link_to "Delete", admin_news_article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+
+

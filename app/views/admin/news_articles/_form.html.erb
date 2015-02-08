@@ -1,0 +1,52 @@
+<%= form_for [:admin, @news_article], :html => { class: "admin-add" } do |f| %>
+  <header>
+    <h1><i class="fa fa-newspaper-o"></i>
+      <% if @news_article.new_record? %>
+        New News Article</h1>
+      <% else %>
+        Edit News Article 
+      <% end %>
+    </h1>
+  </header>
+  <%= render "shared/errors", object: @news_article %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.attachment_field :image %>
+    <% if @news_article.image_id? %>
+      <%= image_tag attachment_url(@news_article, :image, :fill, 150, 150) %>
+      <%= f.check_box :remove_image %>
+      <%= f.label :remove_image %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :document %>
+    <%= f.attachment_field :document %>
+    <% if @news_article.document_id? %>
+      <div class="attachment">
+      <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@news_article, :document)%>
+      </div>
+      <%= f.check_box :remove_document %>
+      <%= f.label :remove_document %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+  <div>
+    <% if @news_article.new_record? %>
+      <%= f.submit "Add News Article" %>
+    <% else %>
+      <%= f.submit "Update News Article" %>
+    <% end %>
+  </div>
+<% end %>
+

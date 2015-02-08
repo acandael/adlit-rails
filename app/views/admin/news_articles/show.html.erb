@@ -1,0 +1,36 @@
+<section class="admin-show">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <%= link_to "All News", admin_news_articles_path %>
+    <a href="#"><%= @news_article.title %></a> 
+  </div>
+<article class="news-article">
+  <div class="property">
+    <p><strong>Title:</strong></p>
+    <p><%= @news_article.title %></p>
+  </div>
+  <div class="property">
+    <p><strong>Body:</strong></p>
+    <p>
+     <%= @news_article.body %>
+    </p>
+  </div>
+  <div class="property">
+    <p><strong>Image:</strong></p>
+    <p>
+      <%= image_tag attachment_url(@news_article, :image, :fill, 150, 150) %>
+    </p>
+  <div>
+  <div class="property attachment">
+    <p><strong>Document:</strong></p>
+    <p>
+      <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@news_article, :document) %>
+    </p>
+  </div>
+  <div class="property">
+    <p><strong>Link:</strong></p>
+    <p>link: <%= link_to @news_article.link, @news_article.link %></p>
+  </div>
+</article>
+</section>
+

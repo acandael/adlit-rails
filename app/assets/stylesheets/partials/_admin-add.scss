@@ -1,0 +1,28 @@
+section.admin-add {
+  @include outer-container;
+  .breadcrumb {
+    @include shift(1);
+  }
+}
+
+form.admin-add {
+  margin-top: em(40);
+  margin-bottom: em(60);
+  @include span-columns(10);
+  @include shift(1);
+
+  padding: 3em;
+  border: 1px solid lighten($dark-gray, 30);
+
+  div {
+    margin-top: em(20);
+    margin-bottom: em(20);
+  }
+
+  div.submit {
+    padding-top: em(40);
+    text-align: center;
+  }
+}
+
+

@@ -9,6 +9,10 @@
         <li class="nav-link"><a href="/project.html">PROJECT</a></li>
         <li class="nav-link"><a href="#">OUTPUT</a></li>
         <li class="nav-link lang"><i class="fa fa-flag"></i><a href="#">EN</a></li>
+        <% if current_user %>
+        <li class="nav-link"><%= link_to "admin", admin_path %></li>
+        <li class="nav-link"><%= link_to "Sign Out", session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

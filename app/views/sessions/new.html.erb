@@ -1,8 +1,9 @@
+<section class="authenticate">
 <header>
   <h1>Sign In</h1>
 </header>
 
-<%= form_tag(session_path) do %>
+<%= form_tag(session_path, class: "signin") do %>
   <fieldset>
     <ol>
       <li>
@@ -19,5 +20,6 @@
     </ol>
   </fieldset>
 <% end %>
+</section>
   
 

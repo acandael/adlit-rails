@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "Deleting a publication" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "destroys the publication and shows the publication listing without the deleted publication" do
     category = Category.create!(name: "presentaties")
     publication = Publication.create!(title: "Publication Title",

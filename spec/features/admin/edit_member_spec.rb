@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe "Editing a member" do
 
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "updates the member and shows the members updated details" do
     member = Member.create!(member_attributes) 
     

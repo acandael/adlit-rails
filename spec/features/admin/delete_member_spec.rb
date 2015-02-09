@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "Deleting a member" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "destroys the member and shows the members listing without the deleted member" do
 
     member = Member.create!(member_attributes) 

@@ -1,4 +1,4 @@
-class Admin::PublicationsController < ApplicationController
+class Admin::PublicationsController < DashboardController
   def index
     @publications = Publication.all
   end

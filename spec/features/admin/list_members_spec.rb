@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "Viewing the list of members" do
+
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "shows the members" do
     member1 = Member.create!(name: "Liselot Hudders",
                              email: "liselot.hudders@ugent.be",

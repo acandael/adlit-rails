@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 describe "Editing a publication" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
   it "updates the publication and shows the updated details" do
-    category = Category.create!(name: "presentaties")
-    publication = Publication.create!(title: "Publication Title",
-                                      category: category)
+    publication = Publication.create!(publication_attributes)
 
     visit admin_publications_path
 
@@ -26,10 +28,7 @@ describe "Editing a publication" do
   end
 
   it "does not update the publication if it's invalid" do
-    category = Category.create!(name: "presentaties")
-    publication = Publication.create!(title: "Publication Title",
-                                      category: category)
-
+    publication = Publication.create!(publication_attributes)
 
     visit edit_admin_publication_path(publication)
 

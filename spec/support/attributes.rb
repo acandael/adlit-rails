@@ -38,4 +38,12 @@ def user_attributes(overrides = {})
   }.merge(overrides)
 end
 
+def publication_attributes(overrides = {})
+  {
+    title: "Deliverable 1.1 Rapport rond mediabezit",
+    category_id: 1,
+    document_id: 1
+  }
+end
+
 

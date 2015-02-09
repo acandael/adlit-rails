@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "Deleting a news article" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "destroys the news article and shows the news articles listing without the deleted news article" do
 
     newsarticle = NewsArticle.create!(newsarticle_attributes) 

@@ -1,4 +1,4 @@
-class Admin::StakeholdersController < ApplicationController
+class Admin::StakeholdersController < DashboardController
   def index
     @stakeholders = Stakeholder.all
   end

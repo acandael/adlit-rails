@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "Editing a stakeholder" do
+
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "updates the stakeholder and shows the updated details" do
     field = Field.create!(name: "onderwijs")
     stakeholder = Stakeholder.create!(stakeholder_attributes(field_id: field.id))

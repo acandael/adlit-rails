@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "Creating a new member" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "saves the member and shows the new member details" do
     visit admin_members_path
 

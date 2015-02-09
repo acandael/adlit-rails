@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "viewing the list of stakeholders" do
+
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "shows the stakeholders" do
     field1 = Field.create!(name: "beleidsmakers")
     field2 = Field.create!(name: "maatschappelijke actoren")

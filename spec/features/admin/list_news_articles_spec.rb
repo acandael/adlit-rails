@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 feature 'Admin interacts with news' do
+
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   scenario 'and sees news items' do
     newsarticle1 = NewsArticle.create(title: "De mazen van het internet",
                                      body: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?")

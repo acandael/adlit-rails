@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "viewing the list of publications" do
+
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "shows the publications" do
     category_1 = Category.new(name: "deliverables")
     category_2 = Category.new(name: "wetenschappelijke output")

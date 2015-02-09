@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "Creating a new stakeholder" do
+  before do
+    user = User.create!(user_attributes)
+    sign_in(user)
+  end
+
   it "saves the stakeholder and shows the new stakeholder details" do
     Field.create!(name: "onderwijs")
 

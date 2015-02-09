@@ -1,0 +1,22 @@
+<section class="admin-show">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <%= link_to "All Stakeholders", admin_stakeholders_path %>
+    <a href="#"><%= @stakeholder.name %></a> 
+  </div>
+  <article>
+    <div class="property">
+      <p><strong>Name:</strong></p>
+      <p><%= @stakeholder.name %></p>
+    </div>
+    <div>
+      <p><strong>Field:</strong></p>
+      <p><%= @stakeholder.field.name %></p>
+    </div>
+    <div class="property">
+      <p><strong>Link:</strong></p>
+      <p><%= link_to @stakeholder.link %></p>
+    </div>
+  </article>
+</section>
+

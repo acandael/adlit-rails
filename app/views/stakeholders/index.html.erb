@@ -1,0 +1,53 @@
+<section class="stakeholders">
+  <header>
+    <h1>AdLit Stakeholders</h1>
+  </header>
+  <div class="boxes">
+    <div class="box">
+      <p><i class="fa fa-suitcase large"></i></p>
+      <h2>Beleidsmakers</h2>
+      <ul>
+        <% @stakeholders.each do |stakeholder| %>
+          <% if stakeholder.field.name == 'beleidsmakers' %>
+          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="box">
+      <p><i class="fa fa-users large"></i></p>
+      <h2>Maatschapperlijke Actoren</h2>
+      <ul>
+        <% @stakeholders.each do |stakeholder| %>
+          <% if stakeholder.field.name == 'maatschappelijke actoren' %>
+          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="box">
+      <p><i class="fa fa-graduation-cap large"></i></p>
+      <h2>Onderwijs</h2>
+      <ul>
+        <% @stakeholders.each do |stakeholder| %>
+          <% if stakeholder.field.name == 'onderwijs' %>
+          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="box">
+      <p><i class="fa fa-newspaper-o large"></i></p>
+      <h2>Reclame- en Mediaindustrie</h2>
+      <ul>
+        <% @stakeholders.each do |stakeholder| %>
+          <% if stakeholder.field.name == 'reclame- en mediaindustrie' %>
+          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+

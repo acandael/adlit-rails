@@ -89,3 +89,35 @@ Publication.create!([
   }
 ])
 
+Field.create!([
+  {
+    name: 'onderwijs'
+  },
+  {
+    name: 'maatschappelijke actoren'
+  },
+  {
+    name: 'beleidsmakers'
+  },
+  {
+    name: 'reclame- en mediaindustrie'
+  }
+])
+
+Stakeholder.create!([
+  {
+    name: 'Departement Cultuur, Media, Jeugd en Sport',
+    field_id: 1,
+    link: 'http://www.cultuur.be'
+  },
+  {
+    name: 'FOD Economie',
+    field_id: 2,
+    link: 'http://www.fod.be'
+  },
+  {
+    name: 'Jury voor Ethische Praktijken Inzake Reclame & Raad voor Reclame',
+    field_id: 4,
+    link: 'http://www.jury.be'
+  }
+])

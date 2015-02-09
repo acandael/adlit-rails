@@ -1,0 +1,28 @@
+<%= form_for [:admin, @stakeholder], :html => { class: "admin-add" } do |f| %>
+  <header>
+    <h1><i class="fa fa-user"></i>
+      <% if @stakeholder.new_record? %>
+        New Stakeholder</h1>
+      <% else %>
+        Edit Stakeholder 
+      <% end %>
+    </h1>
+  </header>
+  <%= render "shared/errors", object: @stakeholder %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :field_id, "Field" %>
+    <%= f.select :field_id, options_for_fields, label: "Field" %>
+  </div>
+  <div>
+    <%= f.label :link %>
+    <%= f.text_field :link %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+

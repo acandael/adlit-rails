@@ -1,0 +1,21 @@
+<section class="admin">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <a href="javascript:void(0)">Stakeholders</a>
+  </div>
+  <header>
+    <h1><i class="fa fa-users"></i>Stakeholders</h1>
+  </header>
+  <%= button_to "Add New Stakeholder", new_admin_stakeholder_path, method: "get" %>
+  <table class="tables">
+    <tbody>
+    <% @stakeholders.each do |stakeholder| %>
+      <tr>
+        <td><%= link_to stakeholder.name, admin_stakeholder_path(stakeholder) %></td>
+        <td><%= link_to 'Edit', edit_admin_stakeholder_path(stakeholder) %> | <%= link_to 'Delete', admin_stakeholder_path(stakeholder), method: :delete, data: { confirm: 'Are your sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+

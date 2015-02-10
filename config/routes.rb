@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'team', to: 'members#index'
   get 'team/member/:id', to: 'members#show', as: 'member'
   get 'output', to: 'publications#index'
+  get 'project', to: 'pages#project'
   get 'stakeholders', to: 'stakeholders#index'
   get 'signin', to: 'sessions#new' 
   get 'admin', to: 'dashboard#index'

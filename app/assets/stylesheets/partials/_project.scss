@@ -1,0 +1,30 @@
+section.project {
+  @include outer-container;
+  margin-bottom: em(54);
+
+  .intro {
+    @include media($large-screen) {
+      @include span-columns(10);
+      @include shift(1);
+    }
+    p {
+      @include media($large-screen) {
+      font-size: $base-font-size * 1.2;
+      }
+    }
+  }
+
+  .video {
+    @include media($large-screen) {
+      @include span-columns(10);
+      @include shift(1);
+    }
+  }
+
+  .videocontent {
+	  width:80%;
+	  max-width: 840px;
+	  margin: 0 auto;
+  }
+}
+

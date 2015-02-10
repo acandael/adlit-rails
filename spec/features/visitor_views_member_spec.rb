@@ -17,5 +17,13 @@ describe 'viewing an individual team member' do
     expect(page).to have_text(member.address)
     expect(page).to have_link(member.affiliation)
   end
+
+  it "includes the member's name in the page title" do
+    member = Member.create!(member_attributes)
+
+    visit member_path(member)
+
+    expect(page).to have_title("AdLit - #{member.name}")
+  end
 end
 

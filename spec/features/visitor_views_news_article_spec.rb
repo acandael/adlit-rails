@@ -15,5 +15,13 @@ describe 'viewing an individual news article' do
     expect(page).to have_text(newsarticle.body)
     expect(page).to have_link(newsarticle.link)
   end
+
+  it "includes the article's title in the page title" do
+    newsarticle = NewsArticle.create!(newsarticle_attributes)
+
+    visit news_article_path(newsarticle) 
+
+    expect(page).to have_title("AdLit - #{newsarticle.title}")
+  end
 end
 

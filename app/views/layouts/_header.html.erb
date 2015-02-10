@@ -4,10 +4,10 @@
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to "HOME", root_path %></li>
-        <li class="nav-link"><%= link_to "NIEUWS", news_path %></li>
-        <li class="nav-link"><%= link_to "TEAM", team_path %></li>
-        <li class="nav-link"><%= link_to "PROJECT", project_path %></li>
-        <li class="nav-link"><%= link_to "OUTPUT", output_path %></li>
+        <li class="nav-link"><%= link_to "NIEUWS", news_path, data: { no_turbolink: true } %></li>
+        <li class="nav-link"><%= link_to "TEAM", team_path, data: { no_turbolink: true } %></li>
+        <li class="nav-link"><%= link_to "PROJECT", project_path, data: { no_turbolink: true } %></li>
+        <li class="nav-link"><%= link_to "OUTPUT", output_path, data: { no_turbolink: true } %></li>
         <li class="nav-link lang"><i class="fa fa-flag"></i><a href="#">EN</a></li>
         <% if current_user %>
         <li class="nav-link"><%= link_to "admin", admin_path %></li>

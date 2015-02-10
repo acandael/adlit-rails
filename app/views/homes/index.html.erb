@@ -5,44 +5,42 @@
       <h1>AdLit, een onderzoeksproject rond reclamewijsheid bij minderjarigen</h1>
     </div>
     <div class="cta">
-      <form action="#info" method="get">
-        <button id="project">Ontdek het project</button>
-      </form>
+      <button class="project">Ontdek het project</button>
     </div>
   </section>
   <section class="news-summary">
     <div class="grid-items">
       <% @news_articles.each do |article| %>
-        <%= link_to news_article_path(article), class: "grid-item" do %> 
+        <%= link_to news_article_path(article), class: "grid-item", data: { no_turbolink: true } do %> 
           <%= image_tag attachment_url(article, :image, :fill, 150, 150) %>
           <h1><%= article.title %></h1>
         <% end %>
       <% end %>
     </div>
     <div class="more-news">
-      <p class="read-more"><a href="/news.html" class="underline">Meer nieuws &amp events</a></p>
+      <p class="read-more"><%= link_to 'Meer nieuws', news_path, class: 'underline', data: { no_turbolink: true } %></p>
   </div>
   </section>
   <section class="info">
     <div class="boxes">
       <div class="box">
         <p class="icon"><i class="fa fa-users large"></i></p>
-        <h2><a href="/team.html" class="underline">Wie zijn we?</a></h2>
+        <h2><%= link_to 'Wie zijn we?', team_path, class: 'underline', data: { no_turbolink: true } %></h2>
         <p>Non-profit an public affairs organizations need to communicate their message with a loud and clear voice</p>
       </div>
       <div class="box">
         <p class="icon"><i class="fa fa-suitcase large"></i></p>
-        <h2><a href="/project.html" class="underline">Wat doen we?</a></h2>
+        <h2><%= link_to 'Wat doen we?', project_path, class: 'underline', data: { no_turbolink: true } %></h2>
         <p>You’ll be hard-pressed to find a team more experienced building brands and websites for Democratic political campaigns. We’re design trend-setters and know political tech inside and out.</p>
       </div>
       <div class="box">
         <p class="icon"><i class="fa fa-newspaper-o large"></i></p>
-        <h2><a href="/output.html" class="underline">Rapporten en Publicaties</a></h2>
+        <h2><%= link_to 'Rapporten en publicaties', output_path, class: 'underline' %></h2>
         <p>We partner with agencies all the time to expand their services for their own clients. We fit in seamlessly. We can also do the same with your startup to get your big idea from “dream” to “reality”.</p>
       </div>
       <div class="box">
         <p class="icon"><i class="fa fa-university large"></i></p>
-        <h2><a href="/output.html" class="underline">Valorizatie</a></h2>
+        <h2><%= link_to 'Valorizatie', output_path, class: 'underline' %></h2>
         <p>We can leverage our extensive experience in design, tech and brand strategy to promote your idea or product. Whether it’s a campaign, an org or you’re just selling a widget, the goal of our services is always the same: to inspire.</p>
       </div>
     </div>
@@ -50,12 +48,19 @@
 </div>
 <script>
 $(document).ready(function() {
+
   $(".main").onepage_scroll({
      sectionContainer: "section", 
      easing: "ease",
      animationTime: 1000,
      pagination: true,
      updateURL: false
+  });
+
+  $(".project").on("click", function(event) {
+    event.preventDefault();
+    $(".main").moveDown();
+    $(".main").moveDown();
   });
 });
 </script>

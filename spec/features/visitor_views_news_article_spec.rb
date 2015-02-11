@@ -23,5 +23,28 @@ describe 'viewing an individual news article' do
 
     expect(page).to have_title("AdLit - #{newsarticle.title}")
   end
+
+  it "generates a slug when it's created" do
+    news_article = NewsArticle.create!(newsarticle_attributes(title: "The Internet Trap"))
+    
+    expect(news_article.slug).to eq("the-internet-trap")
+  end
+
+  it "requires a unique title" do
+    article1 = NewsArticle.create!(newsarticle_attributes)
+    article2 = NewsArticle.new(title: article1.title)
+
+    article2.valid?
+    expect(article2.errors[:title].first).to eq("has already been taken")
+  end
+
+  it "requires a unique slug" do
+    article1 = NewsArticle.create!(newsarticle_attributes)
+
+    article2 = NewsArticle.new(slug: article1.slug)
+    article2.valid? # populates errors
+    expect(article2.errors[:slug].first).to eq("has already been taken")
+  end
+  
 end
 

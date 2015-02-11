@@ -1,10 +1,12 @@
 class Admin::NewsArticlesController < DashboardController
+  before_action :set_news_article, only: [:show, :edit, :update, :destroy]
+
   def index
     @news_articles = NewsArticle.order(created_at: :asc)
   end
 
   def show
-    @news_article = NewsArticle.find(params[:id])
+
   end
 
   def new
@@ -21,11 +23,10 @@ class Admin::NewsArticlesController < DashboardController
   end
 
   def edit
-    @news_article = NewsArticle.find(params[:id])
+
   end
 
   def update
-    @news_article = NewsArticle.find(params[:id])
     if @news_article.update(news_article_params)
       redirect_to admin_news_articles_path, notice: "News article successfully updated!"
     else
@@ -34,7 +35,6 @@ class Admin::NewsArticlesController < DashboardController
   end
 
   def destroy
-    @news_article = NewsArticle.find(params[:id])
     @news_article.destroy
     redirect_to admin_news_articles_path, notice: "News article successfully deleted!"
   end
@@ -43,6 +43,10 @@ class Admin::NewsArticlesController < DashboardController
 
   def news_article_params
     params.required(:news_article).permit(:title, :body, :image, :remove_image, :link, :document, :remove_document)
+  end
+
+  def set_news_article
+    @news_article = NewsArticle.find_by!(slug: params[:id])
   end
 end
 

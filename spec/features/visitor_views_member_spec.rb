@@ -25,5 +25,27 @@ describe 'viewing an individual team member' do
 
     expect(page).to have_title("AdLit - #{member.name}")
   end
+
+  it "generates a slug when it's created" do
+    member = Member.create!(member_attributes(name: "Daniel Biltereyst"))
+
+    expect(member.slug).to eq("daniel-biltereyst")
+  end
+
+  it "requires a unique name" do
+    member1 = Member.create!(member_attributes)
+
+    member2 = Member.new(name: member1.name)
+    member2.valid? # populates errors
+    expect(member2.errors[:name].first).to eq("has already been taken")
+  end
+
+  it "requires a unique slug" do
+    member1 = Member.create!(member_attributes)
+
+    member2 = Member.new(slug: member1.slug)
+    member2.valid? # populates errors
+    expect(member2.errors[:slug].first).to eq("has already been taken")
+  end
 end
 

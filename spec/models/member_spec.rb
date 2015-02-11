@@ -47,5 +47,6 @@ describe Member do
       expect(member.errors[:link].any?).to eq(true)
     end
   end
+
 end
 

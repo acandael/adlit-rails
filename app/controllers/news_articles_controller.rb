@@ -1,6 +1,6 @@
 class NewsArticlesController < ApplicationController
   def index
-    @news_articles = NewsArticle.all
+    @news_articles = NewsArticle.recent(6)
   end
 
   def show

@@ -1,6 +1,6 @@
 class Admin::NewsArticlesController < DashboardController
   def index
-    @news_articles = NewsArticle.all
+    @news_articles = NewsArticle.order(created_at: :asc)
   end
 
   def show

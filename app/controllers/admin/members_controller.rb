@@ -1,6 +1,6 @@
 class Admin::MembersController < DashboardController
   def index
-    @members = Member.all    
+    @members = Member.by_organization
   end
 
   def show

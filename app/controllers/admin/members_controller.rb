@@ -40,7 +40,7 @@ class Admin::MembersController < DashboardController
   private
 
   def member_params
-    params.require(:member).permit(:name, :function, :image, :remove_image, :email, :phone, :organization, :address, :affiliation, :link)
+    params.require(:member).permit(:name, :function, :image, :image_cache_id, :remove_image, :email, :phone, :organization, :address, :affiliation, :link)
   end
 
   def set_member

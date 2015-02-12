@@ -19,7 +19,10 @@
   </div>
   <div>
     <%= f.label :image %>
-    <%= f.attachment_field :image %>
+    <%= f.attachment_field :image, direct: true %>
+
+    <div id="image"></div>
+
     <% if @member.image_id? %>
       <%= image_tag attachment_url(@member, :image, :fill, 150, 150) %>
       <%= f.check_box :remove_image %>

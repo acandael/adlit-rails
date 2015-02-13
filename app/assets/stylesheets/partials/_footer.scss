@@ -30,7 +30,7 @@ footer {
     &:hover {
       transition-property: color, border-color;
       transition-duration: .2s;
-      color: lighten($base-accent-color, 15);
+      color: lighten($action-color, 15);
       border: 2px solid lighten($light-green, 15); 
     }
   }

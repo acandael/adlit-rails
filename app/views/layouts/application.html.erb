@@ -23,7 +23,7 @@
 
   <%= render 'layouts/header' %>
   <%= yield %>
-  <%= render 'layouts/footer' %>
+  <%= render 'layouts/footer' unless @disable_footer %>
 
 </body>
 </html>

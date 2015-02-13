@@ -4,7 +4,7 @@
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><%= link_to "HOME", root_path %></li>
-        <li class="nav-link"><%= link_to "NIEUWS", news_path, data: { no_turbolink: true } %></li>
+        <li class="nav-link" data-menuanchor="news-summary"><a href="#news-summary">NIEUWS</a></li>
         <li class="nav-link"><%= link_to "TEAM", team_path, data: { no_turbolink: true } %></li>
         <li class="nav-link"><%= link_to "PROJECT", project_path, data: { no_turbolink: true } %></li>
         <li class="nav-link"><%= link_to "OUTPUT", output_path, data: { no_turbolink: true } %></li>

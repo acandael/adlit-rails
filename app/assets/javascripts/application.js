@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.onepage-scroll
+//= require jquery.fullPage
 //= require turbolinks
 //= require_tree .

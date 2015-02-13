@@ -86,10 +86,6 @@ div.cta {
 
     @include media($large-screen) {
       @include outer-container;
-      @include span-columns(12);
-      @include shift(2);
-      margin-top: em(81);
-      margin-left: em(182.250);
     }
 
 
@@ -105,11 +101,9 @@ div.cta {
 
 .info {
   @include media($large-screen) {
-    padding-top: em(24);
     @include outer-container;
     @include span-columns(6);
     @include shift(1);
-    margin-top: em(54);
   }
 
   @include media($landscape-screen) {

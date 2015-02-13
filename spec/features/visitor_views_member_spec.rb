@@ -47,5 +47,15 @@ describe 'viewing an individual team member' do
     member2.valid? # populates errors
     expect(member2.errors[:slug].first).to eq("has already been taken")
   end
+
+  it "orders the members by organization" do
+    member1 = Member.create!(member_attributes(name: "liselot", email: "liselot@ugent.be", organization: "universiteit gent"))
+    member2 = Member.create!(member_attributes(name: "pieter", email: "pieter@ugent.be", organization: "katholieke universiteit leuven"))
+    member3 = Member.create!(member_attributes(name: "daniel", email: "daniel@ugent.be", organization: "universiteit antwerpen"))
+
+    visit team_path
+
+    expect(Member.by_organization).to eq([member2, member3, member1])
+  end
 end
 

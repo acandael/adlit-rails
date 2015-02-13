@@ -14,7 +14,7 @@
       <i class="fa fa-envelope"></i><%= mail_to @member.email %><br />
       <i class="fa fa-phone"></i><a href="tel:<%= @member.phone %>"><%= @member.phone %></a><br />
       <i class="fa fa-map-marker"></i><strong><%= @member.organization %></strong><br />
-      <%= @member.address %> 
+      <%= simple_format(@member.address) %> 
       </p>
     </div>
     <div class="affiliation">

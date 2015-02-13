@@ -16,8 +16,12 @@
       <%= simple_format(@news_article.body) %>
     </p>
     <ul class="extra">
-      <li><i class="fa fa-download"></i><a href="#" class="underline">download video</a></li>
+      <% if @news_article.document_id? %>
+      <li><i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@news_article, :document) %></li>
+      <% end %>
+      <% if @news_article.link? %>
       <li><i class="fa fa-link"></i><%= link_to @news_article.link, class: "underline" %></li>
+      <% end %>
     </ul>
   </div>
 </article>

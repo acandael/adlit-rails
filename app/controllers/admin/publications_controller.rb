@@ -1,14 +1,15 @@
 class Admin::PublicationsController < DashboardController
+  before_action :set_publication, only: [:show, :edit, :update, :destroy]
+
   def index
     @publications = Publication.all
   end
 
   def show
-    @publication = Publication.find(params[:id])
   end
 
   def new
-    @publication = Publication.new 
+    @publication = Publication.new
   end
 
   def create
@@ -21,11 +22,9 @@ class Admin::PublicationsController < DashboardController
   end
 
   def edit
-    @publication = Publication.find(params[:id])
   end
 
   def update
-    @publication = Publication.find(params[:id])
     if @publication.update(publication_params)
       redirect_to admin_publications_path, notice: "Publication successfully updated!"
     else
@@ -34,7 +33,6 @@ class Admin::PublicationsController < DashboardController
   end
 
   def destroy
-    @publication = Publication.find(params[:id])
     @publication.destroy
     redirect_to admin_publications_path, notice: "Publication successfully deleted!"
   end
@@ -44,5 +42,8 @@ class Admin::PublicationsController < DashboardController
   def publication_params
     params.require(:publication).permit(:title, :category_id, :document, :remove_document)
   end
-end
 
+  def set_publication
+    @publication = Publication.find(params[:id])
+  end
+end

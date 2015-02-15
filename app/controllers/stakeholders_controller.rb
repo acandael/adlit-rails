@@ -3,4 +3,3 @@ class StakeholdersController < ApplicationController
     @stakeholders = Stakeholder.all
   end
 end
-

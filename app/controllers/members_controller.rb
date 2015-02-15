@@ -7,4 +7,3 @@ class MembersController < ApplicationController
     @member = Member.find_by!(slug: params[:id])
   end
 end
-

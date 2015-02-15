@@ -3,4 +3,3 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
   end
 end
-

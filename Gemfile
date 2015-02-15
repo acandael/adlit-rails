@@ -38,7 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 gem "mini_magick"
 gem 'refile', '~> 0.5.3', require: ["refile/rails", "refile/image_processing"]

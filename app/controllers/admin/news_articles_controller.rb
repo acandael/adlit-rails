@@ -40,7 +40,7 @@ class Admin::NewsArticlesController < DashboardController
   private
 
   def news_article_params
-    params.required(:news_article).permit(:title, :body, :image, :remove_image, :link, :document, :remove_document)
+    params.required(:news_article).permit(:title, :body, :image, :image_cache_id, :remove_image, :link, :document, :remove_document)
   end
 
   def set_news_article

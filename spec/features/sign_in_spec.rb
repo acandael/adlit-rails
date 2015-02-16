@@ -20,7 +20,7 @@ describe "Signing in" do
     click_button 'Sign In'
 
     expect(current_path).to eq(admin_path)   
-    expect(page).to have_text('admin')
+    expect(page).to have_text('Beheer')
     expect(page).to have_text("Welcome back, #{user.name}!")
     expect(page).to have_link('Sign Out')
   end

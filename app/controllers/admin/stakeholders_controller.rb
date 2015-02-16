@@ -1,10 +1,11 @@
 class Admin::StakeholdersController < DashboardController
+  before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
+
   def index
     @stakeholders = Stakeholder.all
   end
 
   def show
-    @stakeholder = Stakeholder.find(params[:id])
   end
 
   def new
@@ -21,11 +22,9 @@ class Admin::StakeholdersController < DashboardController
   end
 
   def edit
-    @stakeholder = Stakeholder.find(params[:id])
   end
 
   def update
-    @stakeholder = Stakeholder.find(params[:id])
     if @stakeholder.update(stakeholder_params)
       redirect_to admin_stakeholders_path, notice: "Stakeholder successfully updated!"
     else
@@ -34,7 +33,6 @@ class Admin::StakeholdersController < DashboardController
   end
 
   def destroy
-    @stakeholder = Stakeholder.find(params[:id])
     @stakeholder.destroy
     redirect_to admin_stakeholders_path, notice: "Stakeholder successfully deleted!"
   end
@@ -44,5 +42,8 @@ class Admin::StakeholdersController < DashboardController
   def stakeholder_params
     params.require(:stakeholder).permit(:name, :field_id, :link)
   end
-end
 
+  def set_stakeholder
+    @stakeholder = Stakeholder.find(params[:id])
+  end
+end

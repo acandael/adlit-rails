@@ -4,7 +4,7 @@
       <% if @member.new_record? %>
         New Member</h1>
       <% else %>
-        Edit Member 
+        Edit Member
       <% end %>
     </h1>
   </header>
@@ -19,15 +19,19 @@
   </div>
   <div>
     <%= f.label :image %>
-    <%= f.attachment_field :image, direct: true %>
 
     <div id="image"></div>
 
     <% if @member.image_id? %>
       <%= image_tag attachment_url(@member, :image, :fill, 150, 150) %>
-      <%= f.check_box :remove_image %>
-      <%= f.label :remove_image %>
+      <div class="check_box">
+        <%= f.check_box :remove_image %>
+        <%= f.label :remove_image %>
+      </div>
     <% end %>
+
+    <%= f.attachment_field :image, direct: true, data: { remote_id: :member_image_cache_id } %>
+
   </div>
   <div>
     <%= f.label :email %>

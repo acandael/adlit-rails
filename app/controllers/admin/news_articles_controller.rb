@@ -6,7 +6,6 @@ class Admin::NewsArticlesController < DashboardController
   end
 
   def show
-
   end
 
   def new
@@ -23,7 +22,6 @@ class Admin::NewsArticlesController < DashboardController
   end
 
   def edit
-
   end
 
   def update
@@ -49,4 +47,3 @@ class Admin::NewsArticlesController < DashboardController
     @news_article = NewsArticle.find_by!(slug: params[:id])
   end
 end
-

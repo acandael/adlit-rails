@@ -5,4 +5,3 @@ class Publication < ActiveRecord::Base
 
   attachment :document
 end
-

@@ -83,3 +83,12 @@ select {
   max-width: 100%;
   width: auto;
 }
+
+.check_box {
+  input[type="checkbox"] {
+    display: inline-block;
+  }
+  label {
+    display: inline-block;
+  }
+}

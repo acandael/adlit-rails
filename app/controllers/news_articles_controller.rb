@@ -7,4 +7,3 @@ class NewsArticlesController < ApplicationController
     @news_article = NewsArticle.find_by!(slug: params[:id])
   end
 end
-

@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   def new
-
   end
 
   def create
-    if user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email], params[:password])
+    if user
       session[:user_id] = user.id
       flash[:notice] = "Welcome back, #{user.name}!"
       redirect_to admin_path
@@ -19,4 +19,3 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "you are now signed out!"
   end
 end
-

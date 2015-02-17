@@ -4,7 +4,7 @@
       <% if @news_article.new_record? %>
         New News Article</h1>
       <% else %>
-        Edit News Article 
+        Edit News Article
       <% end %>
     </h1>
   </header>
@@ -20,15 +20,15 @@
   <div>
     <%= f.label :image %>
 
-    <div id="image"></div>
-
-    <% if @news_article.image_id? %>
-      <%= image_tag attachment_url(@news_article, :image, :fill, 150, 150) %>
-      <div class="check_box">
-        <%= f.check_box :remove_image %>
-        <%= f.label :remove_image %>
-      </div>
-    <% end %>
+    <div id="image">
+      <% if @news_article.image_id? %>
+        <%= refile_file_tag(@news_article, :image, :edit) %>
+        <div class="checkbox">
+          <%= f.check_box :remove_image %>
+          <%= f.label :remove_image %>
+        </div>
+      <% end %>
+    </div>
 
     <%= f.attachment_field :image, direct: true, data: { remote_id: :news_article_image_cache_id } %>
   </div>
@@ -36,12 +36,13 @@
     <%= f.label :document %>
     <% if @news_article.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to @news_article.document_filename, attachment_url(@news_article, :document)%>
+      <i class="fa fa-download"></i>
+      <%= refile_file_tag(@news_article, :document, nil, type: :link, name: @news_article.document_filename) %>
       </div>
       <div class="checkbox">
         <%= f.check_box :remove_document %>
         <%= f.label :remove_document %>
-    </div>
+      </div>
     <% end %>
     <%= f.attachment_field :document %>
   </div>
@@ -54,4 +55,3 @@
       <%= button_to "Cancel", admin_news_articles_path %>
   </div>
 <% end %>
-

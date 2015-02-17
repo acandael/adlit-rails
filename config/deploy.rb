@@ -5,7 +5,7 @@ set :application, 'adlit'
 set :repo_url, 'git@github.com:acandael/adlit-rails'
 set :deploy_to, '/opt/www/adlit'
 set :user, 'deploy'
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :linked_dirs, %w(log tmp/pids tmp/cache tmp/sockets)
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
@@ -38,16 +38,14 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 # set :keep_releases, 5
 
 namespace :deploy do
-
-%w[start stop restart].each do |command|
+  %w(start stop restart).each do |command|
     desc 'Manage Unicorn'
     task command do
       on roles(:app), in: :sequence, wait: 1 do
         execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-      end      
+      end
     end
   end
 
   after :publishing, :restart
-
 end

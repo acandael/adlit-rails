@@ -20,7 +20,7 @@ describe "Editing a movie" do
 
     fill_in 'Title', with: 'Updated News Article Title'
 
-    click_button 'Update News Article'
+    click_button 'Update News article'
 
     expect(current_path).to eq(admin_news_articles_path)
     expect(page).to have_text('Updated News Article Title')
@@ -34,7 +34,7 @@ describe "Editing a movie" do
 
     fill_in 'Title', with: ""
 
-    click_button 'Update News Article'
+    click_button 'Update News article'
 
     expect(page).to have_text('error')
   end

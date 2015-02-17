@@ -17,7 +17,7 @@ describe "Creating a newsarticle" do
     fill_in "Body", with: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?"
     fill_in "Link", with: "http://www.cepec.ugent.be"
 
-    click_button 'Add News Article'
+    click_button 'Create News article'
 
     expect(current_path).to eq(admin_news_articles_path)
     expect(page).to have_text('The news article was successfully added')
@@ -43,7 +43,7 @@ describe "Creating a newsarticle" do
     fill_in "Body", with: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?"
     fill_in "Link", with: "http://www.cepec.ugent.be"
 
-    click_button 'Add News Article'
+    click_button 'Create News article'
     expect(page).to have_text('Oops! The newsarticle could not be saved.')
   end
 end

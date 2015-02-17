@@ -19,17 +19,20 @@
   </div>
   <div>
     <%= f.label :document %>
-    <%= f.attachment_field :document %>
     <% if @publication.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@publication, :document)%>
+      <i class="fa fa-download"></i><%= link_to @publication.document_filename, attachment_url(@publication, :document)%>
       </div>
+      <div class="checkbox">
       <%= f.check_box :remove_document %>
       <%= f.label :remove_document %>
+      </div>
     <% end %>
+    <%= f.attachment_field :document %>
   </div>
   <div>
     <%= f.submit %>
+    <%= button_to "Cancel", admin_publications_path %>
   </div>
 <% end %>
 

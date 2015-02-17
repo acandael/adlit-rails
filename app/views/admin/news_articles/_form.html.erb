@@ -34,25 +34,24 @@
   </div>
   <div>
     <%= f.label :document %>
-    <%= f.attachment_field :document %>
     <% if @news_article.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to "Attachment", attachment_url(@news_article, :document)%>
+      <i class="fa fa-download"></i><%= link_to @news_article.document_filename, attachment_url(@news_article, :document)%>
       </div>
-      <%= f.check_box :remove_document %>
-      <%= f.label :remove_document %>
+      <div class="checkbox">
+        <%= f.check_box :remove_document %>
+        <%= f.label :remove_document %>
+    </div>
     <% end %>
+    <%= f.attachment_field :document %>
   </div>
   <div>
     <%= f.label :link %>
     <%= f.text_field :link %>
   </div>
   <div>
-    <% if @news_article.new_record? %>
-      <%= f.submit "Add News Article" %>
-    <% else %>
-      <%= f.submit "Update News Article" %>
-    <% end %>
+      <%= f.submit %>
+      <%= button_to "Cancel", admin_news_articles_path %>
   </div>
 <% end %>
 

@@ -25,3 +25,4 @@ test:
 production:
   <<: *default
   database: adlit_production 
+  username: deploy

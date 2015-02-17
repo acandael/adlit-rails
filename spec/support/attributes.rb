@@ -25,6 +25,7 @@ def newsarticle_attributes(overrides = {})
     title: "De mazen van het internet",
     body: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?",
     image: "someimage.jpg",
+    document: "some-document.doc",
     link: "http://www.somewebsite.com"
   }.merge(overrides)
 end

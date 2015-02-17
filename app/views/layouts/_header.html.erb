@@ -10,7 +10,7 @@
         <li class="nav-link"><%= link_to "OUTPUT", output_path, data: { no_turbolink: true } %></li>
         <li class="nav-link lang"><i class="fa fa-flag nav"></i><a href="#">EN</a></li>
         <% if current_user %>
-          <li class="nav-link"><i class="fa fa-dashboard nav"></i><%= link_to "admin", admin_path %></li>
+          <li class="nav-link"><i class="fa fa-dashboard nav"></i><%= link_to "Beheer", admin_path %></li>
           <li class="nav-link"><i class="fa fa-sign-out nav"></i><%= link_to "Sign Out", session_path, method: :delete %></li>
         <% end %>
       </ul>

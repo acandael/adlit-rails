@@ -6,23 +6,25 @@
 #
 default: &default
   adapter: postgresql
-  host: localhost
   pool: 5
-  username: acandael
-  timeout: 5000
 
 development:
   <<: *default
+  host: localhost
   database: adlit_development 
+  timeout: 5000
+  username: acandael
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  host: localhost
   database: adlit_test 
+  timeout: 5000
+  username: acandael
 
 production:
   <<: *default
   database: adlit_production 
-  username: deploy

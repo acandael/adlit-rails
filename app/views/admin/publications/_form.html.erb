@@ -4,7 +4,7 @@
       <% if @publication.new_record? %>
         New Publication</h1>
       <% else %>
-        Edit Publication 
+        Edit Publication
       <% end %>
     </h1>
   </header>
@@ -21,11 +21,12 @@
     <%= f.label :document %>
     <% if @publication.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to @publication.document_filename, attachment_url(@publication, :document)%>
+        <i class="fa fa-download"></i>
+        <%= refile_file_tag(@publication, :document, nil, type: :link, name: @publication.document_filename) %>
       </div>
       <div class="checkbox">
-      <%= f.check_box :remove_document %>
-      <%= f.label :remove_document %>
+        <%= f.check_box :remove_document %>
+        <%= f.label :remove_document %>
       </div>
     <% end %>
     <%= f.attachment_field :document %>

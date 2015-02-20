@@ -4,7 +4,7 @@ section.news {
 }
 
 .articles {
-  @include span-columns(9);
+  @include span-columns(8);
 }
 
 
@@ -31,19 +31,20 @@ article.news-item {
   }
 
   .content {
-    @include span-columns(6 of 9)
+    @include span-columns(5 of 8)
   }
 
   aside {
-    @include span-columns(3 of 9);
+    @include span-columns(3 of 8);
     margin-bottom: em(24);
   }
 }
 
 .twitter {
   padding-left: em(24);
+  padding-top: em(24);
   @include media($large-screen) {
-    @include span-columns(3);
+    @include span-columns(4);
   }
 
   h2 {

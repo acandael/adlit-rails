@@ -9,7 +9,7 @@
       <ul>
         <% @stakeholders.each do |stakeholder| %>
           <% if stakeholder.field.name == 'beleidsmakers' %>
-          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+            <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>
       </ul>
@@ -20,7 +20,7 @@
       <ul>
         <% @stakeholders.each do |stakeholder| %>
           <% if stakeholder.field.name == 'maatschappelijke actoren' %>
-          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+            <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>
       </ul>
@@ -31,7 +31,7 @@
       <ul>
         <% @stakeholders.each do |stakeholder| %>
           <% if stakeholder.field.name == 'onderwijs' %>
-          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+            <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>
       </ul>
@@ -42,7 +42,7 @@
       <ul>
         <% @stakeholders.each do |stakeholder| %>
           <% if stakeholder.field.name == 'reclame- en mediaindustrie' %>
-          <li><%= link_to stakeholder.name, stakeholder.link %></li>
+            <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>
       </ul>

@@ -10,7 +10,7 @@
       <ul>
       <% @publications.each do |publication| %>
         <% if publication.category.name == "deliverables" %>
-        <li><%= link_to publication.title, attachment_url(publication, :document) %></li>
+          <li><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></li>
         <% end %>
       <% end %>
       </ul>
@@ -21,7 +21,7 @@
       <ul>
         <% @publications.each do |publication| %>
           <% if publication.category.name == "wetenschappelijke output" %>
-            <li><%= link_to publication.title, attachment_url(publication, :document) %></li>
+            <li><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></li>
           <% end %>
         <% end %>
       </ul>
@@ -32,7 +32,7 @@
       <ul>
         <% @publications.each do |publication| %>
           <% if publication.category.name == "valorisatie output" %>
-            <li><%= link_to publication.title, attachment_url(publication, :document) %></li>
+            <li><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></li>
           <% end %>
         <% end %>
       </ul>
@@ -43,7 +43,7 @@
       <ul>
       <% @publications.each do |publication| %>
         <% if publication.category.name == "presentaties" %>
-            <li><%= link_to publication.title, attachment_url(publication, :document) %></li>
+          <li><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></li>
         <% end %>
       <% end %>
       </ul>

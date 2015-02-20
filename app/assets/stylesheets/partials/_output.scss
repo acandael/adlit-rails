@@ -33,10 +33,6 @@ section.output {
   p {
     text-align: center;
   }
-
-  ul {
-    @extend %default-ul;
-  }
 }
 
 

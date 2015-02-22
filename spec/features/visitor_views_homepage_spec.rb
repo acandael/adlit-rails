@@ -1,17 +1,20 @@
 require 'rails_helper'
 
 describe 'viewing the homepage' do
-  it 'shows no more then 6 news articles' do
-    article1 = NewsArticle.create!(newsarticle_attributes(title: "article1"))
-    article2 = NewsArticle.create!(newsarticle_attributes(title: "article2"))
-    article3 = NewsArticle.create!(newsarticle_attributes(title: "article3"))
-    article4 = NewsArticle.create!(newsarticle_attributes(title: "article4"))
-    article5 = NewsArticle.create!(newsarticle_attributes(title: "article5"))
-    article6 = NewsArticle.create!(newsarticle_attributes(title: "article6"))
-    article7 = NewsArticle.create!(newsarticle_attributes(title: "article7"))
 
+    let!(:article1) { NewsArticle.create!(newsarticle_attributes(title: "article1")) }
+    let!(:article2) { NewsArticle.create!(newsarticle_attributes(title: "article2")) }
+    let!(:article3) { NewsArticle.create!(newsarticle_attributes(title: "article3")) }
+    let!(:article4) { NewsArticle.create!(newsarticle_attributes(title: "article4")) }
+    let!(:article5) { NewsArticle.create!(newsarticle_attributes(title: "article5")) }
+    let!(:article6) { NewsArticle.create!(newsarticle_attributes(title: "article6")) }
+    let!(:article7) { NewsArticle.create!(newsarticle_attributes(title: "article7")) }
+
+    before do
     visit root_path
+    end
 
+  it 'shows no more then 6 news articles' do
     expect(page).to have_text(article1.title)
     expect(page).to have_text(article2.title)
     expect(page).to have_text(article3.title)
@@ -22,12 +25,9 @@ describe 'viewing the homepage' do
   end
 
   it 'shows the news article when the link is clicked' do
-    article = NewsArticle.create!(newsarticle_attributes(title: "article1"))
+    click_link article1.title
 
-    visit root_path
-
-    click_link article.title
-
-    expect(current_path).to eq(news_article_path(article))
+    expect(current_path).to eq(news_article_path(article1))
+    expect(page).to have_text(article1.title)
   end
 end

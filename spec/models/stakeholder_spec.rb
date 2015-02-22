@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Stakeholder do
   it { should validate_presence_of(:name) }
+  it { should validate_uniqueness_of(:name) }
   it { should validate_presence_of(:field_id) }
 
   it "accepts properly formatted links" do
@@ -24,6 +25,14 @@ describe Stakeholder do
 
         expect(stakeholder.errors[:link].any?).to eq(true)
       end
+  end
+
+  it "accepts a stakeholder with blank link" do
+    stakeholder = Stakeholder.new(stakeholder_attributes(link: ""))
+
+    stakeholder.valid?
+
+    expect(stakeholder.errors[:link].any?).to eq(false)
   end
 end
 

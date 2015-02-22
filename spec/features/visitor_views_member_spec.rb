@@ -1,13 +1,14 @@
 require 'rails_helper'
 
 describe 'viewing an individual team member' do
-  it 'shows the member details' do
-    member = Member.create!(member_attributes) 
+  let!(:member) { Member.create!(member_attributes) } 
 
+  before do
     visit team_path
 
     click_link member.name
-
+  end
+  it 'shows the member details' do
     expect(current_path).to eq(member_path(member))
     expect(page).to have_text(member.name)
     expect(page).to have_selector("img[src$='#{member.image}']")
@@ -19,10 +20,6 @@ describe 'viewing an individual team member' do
   end
 
   it "includes the member's name in the page title" do
-    member = Member.create!(member_attributes)
-
-    visit member_path(member)
-
     expect(page).to have_title("AdLit - #{member.name}")
   end
 end

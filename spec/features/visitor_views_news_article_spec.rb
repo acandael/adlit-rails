@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe 'viewing an individual news article' do
-  it 'shows the news article details' do
-    newsarticle = NewsArticle.create!(newsarticle_attributes)
 
+  let!(:newsarticle) { NewsArticle.create!(newsarticle_attributes) } 
+
+  it 'shows the news article details' do
     visit news_path
 
     click_link "Lees Meer" 
@@ -18,8 +19,6 @@ describe 'viewing an individual news article' do
   end
 
   it "includes the article's title in the page title" do
-    newsarticle = NewsArticle.create!(newsarticle_attributes)
-
     visit news_article_path(newsarticle) 
 
     expect(page).to have_title("AdLit - #{newsarticle.title}")

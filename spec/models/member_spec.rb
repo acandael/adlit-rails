@@ -48,6 +48,14 @@ describe Member do
     end
   end
 
+  it "accepts a member with a blank url" do
+    member = Member.new(member_attributes(link: ""))
+
+    member.valid?
+
+    expect(member.errors[:link].any?).to eq(false)
+  end
+
   it "generates a slug when it's created" do
     member = Member.create!(member_attributes(name: "Daniel Biltereyst"))
 

@@ -4,47 +4,41 @@ describe "Creating a newsarticle" do
   before do
     user = User.create!(user_attributes)
     sign_in(user)
+    visit admin_news_articles_path
+    click_button 'Add News Article'
   end
 
   it "saves the newsarticle and shows the newsarticle details" do
-    visit admin_news_articles_path
-
-    click_button 'Add News Article'
-
-    expect(current_path).to eq(new_admin_news_article_path)
-
-    fill_in "Title", with: "New news article title"
-    fill_in "Body", with: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?"
-    fill_in "Link", with: "http://www.cepec.ugent.be"
-
-    click_button 'Create News article'
+    fill_in_form(title: "new title", body: "this is the body")
 
     expect(current_path).to eq(admin_news_articles_path)
     expect(page).to have_text('The news article was successfully added')
-    expect(page).to have_text('New news article title')
+    expect(page).to have_text('new title')
+  end
+
+  it "shows the new newsarticle details" do
+    fill_in_form(title: "new title", body: "some description", link: "http://www.somelink.be")
 
     newsarticle = NewsArticle.last
     
     click_link newsarticle.title
 
-    expect(page).to have_text('New news article title')
-    expect(page).to have_text('Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?')
-    expect(page).to have_text('http://www.cepec.ugent.be')
+    expect(page).to have_text('new title')
+    expect(page).to have_text('some description')
+    expect(page).to have_text('http://www.somelink.be')
   end
 
   it "doesn't save the news article when the data is invalid" do
-    visit admin_news_articles_path
+    fill_in_form(title: " ")
+    expect(page).to have_text('Oops! The newsarticle could not be saved.')
+  end
 
-    click_button 'Add News Article'
-
-    expect(current_path).to eq(new_admin_news_article_path)
-
-    fill_in "Title", with: ""
-    fill_in "Body", with: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?"
-    fill_in "Link", with: "http://www.cepec.ugent.be"
+  def fill_in_form(fields = {})
+    fill_in "Title", with: fields[:title] 
+    fill_in "Body", with: fields[:body] 
+    fill_in "Link", with: fields[:link] 
 
     click_button 'Create News article'
-    expect(page).to have_text('Oops! The newsarticle could not be saved.')
   end
 end
 

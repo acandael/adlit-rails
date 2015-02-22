@@ -1,14 +1,15 @@
 require 'rails_helper'
 
 describe 'admin views an individual member' do
+
+  let(:user) { User.create!(user_attributes) }
+  let!(:member) { Member.create!(member_attributes) }
+
   before do
-    user = User.create!(user_attributes)
     sign_in(user)
   end
 
   it 'shows the member details' do
-    member = Member.create!(member_attributes)
-
     visit admin_members_path
 
     click_link member.name

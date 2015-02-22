@@ -1,47 +1,42 @@
 require 'rails_helper'
 
 describe "Editing a member" do
+  
+  let(:user) { User.create!(user_attributes) }
+  let!(:member) { Member.create!(member_attributes) }
 
   before do
-    user = User.create!(user_attributes)
     sign_in(user)
+    visit admin_members_path
+    click_link 'Edit'
   end
 
   it "updates the member and shows the members updated details" do
-    member = Member.create!(member_attributes) 
-    
-    visit admin_members_path
+    fill_in_form(name: "new name", email: "updated@email.com")
 
-    click_link 'Edit'
-
-    expect(current_path).to eq(edit_admin_member_path(member))
-    expect(find_field('Name').value).to eq(member.name)
-
-    fill_in 'Name', with: "Updated Member Name"
-
-    click_button 'Update Member'
-
-    expect(current_path).to eq(admin_members_path)
     expect(page).to have_text('Member successfully updated')
+  end
 
+  it "shows the updated member details" do
+    fill_in_form(name: "new name", email: "updated@email.com")
     member.reload
 
     click_link member.name
 
-    expect(page).to have_text('Updated Member Name')
-
+    expect(page).to have_text('new name')
+    expect(page).to have_text('updated@email.com')
   end
 
   it "does not update the member if it's invalid" do
-    member = Member.create!(member_attributes)
-
-    visit edit_admin_member_path(member)
-
-    fill_in 'Name', with: " "
-
-    click_button 'Update Member'
+    fill_in_form(name: " ", email: "updated@email.com")
 
     expect(page).to have_text('error')
+  end
+
+  def fill_in_form(fields = {})
+    fill_in 'Name', with: fields[:name] 
+    fill_in 'Email', with: fields[:email] 
+    click_button 'Update Member'
   end
 end
 

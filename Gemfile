@@ -42,6 +42,7 @@ gem 'capistrano-rails', group: :development
 
 gem "mini_magick"
 gem 'refile', '~> 0.5.3', require: ["refile/rails", "refile/image_processing"]
+gem "aws-sdk", '< 2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

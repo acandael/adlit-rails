@@ -1,15 +1,12 @@
 require 'rails_helper'
 
 describe "viewing the list of news items" do
+
+  let!(:newsarticle1) { NewsArticle.create(title: "title 1", body: "this is the body") }
+  let!(:newsarticle2) { NewsArticle.create(title: "title 2", body: "this is the body") }
+  let!(:newsarticle3) { NewsArticle.create(title: "title 3", body: "this is the body") }
+
   it "shows the news items" do
-    newsarticle1 = NewsArticle.create(title: "De mazen van het internet",
-                                     body: "Hoe veilig gedragen we ons op het web? En zijn we ons bewust van de risico’s die we lopen?")
-
-    newsarticle2 = NewsArticle.create(title: "Ello, social netwerken zonder reclame",
-                                     body: "Er heerst heel wat buzz op het Internet.. There is a new player in social media!")
-    newsarticle3 = NewsArticle.create(title: "Product placement heruitgevonden?",
-                                     body: "De muziekgigant Universal Music Group heeft bekend gemaakt dat ze voortaan, met behulp van technologie van het Britse bedrijf Mirriad, nieuwe reclame in reeds bestaande videoclips kan smokkelen")
-
     visit news_path
 
     expect(page).to have_text(newsarticle1.title)

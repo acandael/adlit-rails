@@ -2,7 +2,7 @@ class Admin::MembersController < DashboardController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = Member.by_organization
+    @members = Member.by_name
   end
 
   def show

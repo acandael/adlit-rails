@@ -1,3 +1,5 @@
+require "refile/backend/s3"
+
 if Rails.env.production?
   aws = {
     access_key_id: Rails.application.secrets.s3_key, 

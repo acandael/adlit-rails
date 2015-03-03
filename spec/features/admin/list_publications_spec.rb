@@ -3,9 +3,12 @@ require 'rails_helper'
 describe "viewing the list of publications" do
   
   let(:user) { User.create!(user_attributes) } 
-  let!(:publication1) { Publication.create!(title: "title 1", category_id: 1) }
-  let!(:publication2) { Publication.create!(title: "title 2", category_id: 2) }
-  let!(:publication3) { Publication.create!(title: "title 3", category_id: 3) }
+  let(:category1) { Category.create!(name: "presentaties") }
+  let(:category2) { Category.create!(name: "rapporten") }
+  let(:category3) { Category.create!(name: "wetenschappelijke output") }
+  let!(:publication1) { Publication.create!(title: "title 1", category_id: category1.id) }
+  let!(:publication2) { Publication.create!(title: "title 2", category_id: category2.id) }
+  let!(:publication3) { Publication.create!(title: "title 3", category_id: category3.id) }
 
   before do
     sign_in(user)

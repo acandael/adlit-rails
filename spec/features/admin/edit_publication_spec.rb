@@ -3,9 +3,9 @@ require 'rails_helper'
 describe "Editing a publication" do
 
   let(:user) { User.create!(user_attributes) }
-  let!(:publication) { Publication.create!(publication_attributes) }
   let!(:category1) { Category.create!(name: "presentaties") }
   let!(:category2) { Category.create!(name: "rapporten") }
+  let!(:publication) { Publication.create!(publication_attributes(category_id: category1.id)) }
 
   before do
     sign_in(user)

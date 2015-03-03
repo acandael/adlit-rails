@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe Admin::PublicationsController do
+
+  let!(:category) { Category.create!(name: "presentaties") }
   
   before do
-    @publication = Publication.create!(publication_attributes)
+    @publication = Publication.create!(publication_attributes(category_id: category.id))
   end
 
   context "when not signed in" do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216133440) do
+ActiveRecord::Schema.define(version: 20150302183427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +59,15 @@ ActiveRecord::Schema.define(version: 20150216133440) do
     t.string   "document_filename"
   end
 
+  add_index "publications", ["category_id"], name: "index_publications_on_category_id", using: :btree
+
   create_table "stakeholders", force: :cascade do |t|
     t.string  "name"
     t.string  "link"
     t.integer "field_id"
   end
+
+  add_index "stakeholders", ["field_id"], name: "index_stakeholders_on_field_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -71,4 +75,6 @@ ActiveRecord::Schema.define(version: 20150216133440) do
     t.string "password_digest"
   end
 
+  add_foreign_key "publications", "categories"
+  add_foreign_key "stakeholders", "fields"
 end

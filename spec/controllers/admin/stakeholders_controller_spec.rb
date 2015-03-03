@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 describe Admin::StakeholdersController do
+
+  let!(:field) { Field.create!(name: "onderwijs") }
   
   before do
-    @stakeholder = Stakeholder.create!(stakeholder_attributes)
+    @stakeholder = Stakeholder.create!(stakeholder_attributes(field_id: field.id))
   end
 
   context "when not signed in" do

@@ -15,22 +15,22 @@
       </ul>
     </div>
     <div class="box">
-      <p><i class="fa fa-users large"></i></p>
-      <h2>Maatschapperlijke Actoren</h2>
+      <p><i class="fa fa-graduation-cap large"></i></p>
+      <h2>Onderwijs</h2>
       <ul>
         <% @stakeholders.each do |stakeholder| %>
-          <% if stakeholder.field.name == 'maatschappelijke actoren' %>
+          <% if stakeholder.field.name == 'onderwijs' %>
             <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>
       </ul>
     </div>
     <div class="box">
-      <p><i class="fa fa-graduation-cap large"></i></p>
-      <h2>Onderwijs</h2>
+      <p><i class="fa fa-users large"></i></p>
+      <h2>Maatschapperlijke Actoren</h2>
       <ul>
         <% @stakeholders.each do |stakeholder| %>
-          <% if stakeholder.field.name == 'onderwijs' %>
+          <% if stakeholder.field.name == 'maatschappelijke actoren' %>
             <li><i class="fa fa-link"></i><%= link_to stakeholder.name, stakeholder.link %></li>
           <% end %>
         <% end %>

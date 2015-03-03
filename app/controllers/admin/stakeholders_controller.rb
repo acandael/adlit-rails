@@ -2,7 +2,12 @@ class Admin::StakeholdersController < DashboardController
   before_action :set_stakeholder, only: [:show, :edit, :update, :destroy]
 
   def index
-    @stakeholders = Stakeholder.all
+    if (field_selected?)
+      @stakeholders = Stakeholder.filter_by_field(params[:stakeholder][:field])
+      @selected = params[:stakeholder].try(:[], :field)
+    else
+      @stakeholders = Stakeholder.all
+    end
   end
 
   def show
@@ -38,6 +43,11 @@ class Admin::StakeholdersController < DashboardController
   end
 
   private
+
+  def field_selected?
+    params.has_key?(:stakeholder) && (params[:stakeholder][:field] != "")
+  end
+  
 
   def stakeholder_params
     params.require(:stakeholder).permit(:name, :field_id, :link)

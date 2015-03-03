@@ -6,6 +6,12 @@
   <header>
     <h1><i class="fa fa-users"></i>Stakeholders</h1>
   </header>
+  <div class="filter">
+    <%= form_tag admin_stakeholders_path, method: "get", id: "filter", class: "filter" do %>
+    <%= label_tag "Field" %>
+    <%= select "stakeholder", "field", options_for_select(options_for_fields, selected: @selected), {prompt: 'All'}, onchange: "$('#filter').submit();" %>
+  <% end %>
+  </div>
   <%= button_to "Add New Stakeholder", new_admin_stakeholder_path, method: "get" %>
   <table class="tables">
     <tbody>

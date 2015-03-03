@@ -34,5 +34,17 @@ describe Stakeholder do
 
     expect(stakeholder.errors[:link].any?).to eq(false)
   end
+
+  it "filters by field" do
+    field1 = Field.create!(name: "onderwijs")
+    field2 = Field.create!(name: "media")
+    stakeholder1 = Stakeholder.create!(stakeholder_attributes(name: "stakeholder1", field_id: field1.id))
+    stakeholder2 = Stakeholder.create!(stakeholder_attributes(name: "stakeholder2", field_id: field2.id))
+    stakeholder3 = Stakeholder.create!(stakeholder_attributes(name: "stakeholder3", field_id: field1.id))
+
+    stakeholders = Stakeholder.filter(field1.id)
+
+    expect(stakeholders).not_to include(stakeholder2)
+  end
 end
 

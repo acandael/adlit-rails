@@ -17,10 +17,12 @@
       <%= simple_format(@member.address) %> 
       </p>
     </div>
-    <div class="affiliation">
-      <h2>Affiliatie</h2>
-      <p><i class="fa fa-link"></i><%= link_to @member.affiliation, @member.link %></p>
-    </div>
+    <% if @member.affiliation.present? %>
+      <div class="affiliation">
+        <h2>Affiliatie</h2>
+        <p><i class="fa fa-link"></i><%= link_to @member.affiliation, @member.link %></p>
+      </div>
+    <% end %>
   </div>
 </article>
 

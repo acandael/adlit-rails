@@ -28,6 +28,10 @@ article.news-item {
     }
     text-align: left;
     margin-bottom: em(5);
+
+    a:hover {
+      color: $action-color;
+    }
   }
 
   .content {

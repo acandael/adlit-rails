@@ -1,4 +1,6 @@
-<% content_for(:title, "News") %>
+<% content_for(:title, "Nieuws") %>
+<% content_for(:lang, "nl") %>
+
 <section class="news">
   <div class="intro">
     <header>
@@ -13,11 +15,10 @@
         </aside>
         <div class="content">
           <header>
-            <h1><%= article.title %></h1>
+            <h1><%= link_to article.title, news_article_path(article) %></h1>
             <p class="date"><time datetime="<%= article.created_at %>"><%= article.created_at.strftime('%d %B %Y') %></time></p>
           </header>
-          <p class="summary"><%= truncate(article.body, length: 150, separator: ' ') %>&nbsp;&nbsp;<%= link_to "Lees Meer", news_article_path(article), class: "underline" %>
-        </p>
+          <p class="summary"><%= truncate(article.body, length: 150, separator: ' ') %></p>
         </div>
       </article>
     <% end %>

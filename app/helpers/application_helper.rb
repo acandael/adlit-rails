@@ -12,4 +12,10 @@ module ApplicationHelper
       "AdLit - #{content_for(:title)}"
     end
   end
+
+  def page_lang
+    if content_for?(:lang)
+      "#{content_for(:lang)}"
+    end
+  end
 end

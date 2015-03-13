@@ -28,7 +28,7 @@ SitemapGenerator::Sitemap.create do
     add news_article_path(article), :priority => 0.7, :changefreq => 'weekly'
   end
 
-  Members.find_each do |member|
+  Member.find_each do |member|
     add member_path(member), :priority => 0.7, :changefreq => 'monthly'
   end
 

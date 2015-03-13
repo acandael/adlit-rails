@@ -32,9 +32,9 @@ SitemapGenerator::Sitemap.create do
     add member_path(member), :priority => 0.7, :changefreq => 'monthly'
   end
 
-  add news_path, priority => 0.5, :changefreq => 'weekly'
-  add team_path, priority => 0.5, :changefreq => 'monthly'
-  add output_path, priority => 0.5, :changefreq => 'monthly'
-  add project_path, priority => 0.5, :changefreq => 'yearly'
-  add stakeholders_path, priority => 0.5, :changefreq => 'yearly'
+  add news_path, :priority => 0.5, :changefreq => 'weekly'
+  add team_path, :priority => 0.5, :changefreq => 'monthly'
+  add output_path, :priority => 0.5, :changefreq => 'monthly'
+  add project_path, :priority => 0.5, :changefreq => 'yearly'
+  add stakeholders_path, :priority => 0.5, :changefreq => 'yearly'
 end

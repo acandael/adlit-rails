@@ -8,7 +8,7 @@ class NewsArticle < ActiveRecord::Base
   attachment :image, type: :image
   attachment :document
 
-  scope :recent, ->(max) { order(created_at: :asc).limit(max) }
+  scope :recent, ->(max) { order(created_at: :desc).limit(max) }
 
   def generate_slug
     self.slug ||= title.parameterize if title

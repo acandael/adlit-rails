@@ -15,19 +15,18 @@ describe 'viewing the homepage' do
     end
 
   it 'shows no more then 6 news articles' do
-    expect(page).to have_text(article1.title)
     expect(page).to have_text(article2.title)
     expect(page).to have_text(article3.title)
     expect(page).to have_text(article4.title)
     expect(page).to have_text(article5.title)
     expect(page).to have_text(article6.title)
-    expect(page).not_to have_text(article7.title)
+    expect(page).not_to have_text(article1.title)
   end
 
   it 'shows the news article when the link is clicked' do
-    click_link article1.title
+    click_link article2.title
 
-    expect(current_path).to eq(news_article_path(article1))
-    expect(page).to have_text(article1.title)
+    expect(current_path).to eq(news_article_path(article2))
+    expect(page).to have_text(article2.title)
   end
 end

@@ -22,7 +22,7 @@
       <li><i class="fa fa-download"></i><%= link_to @news_article.document_filename, attachment_url(@news_article, :document) %></li>
       <% end %>
       <% if @news_article.link? %>
-      <li><i class="fa fa-link"></i><%= link_to @news_article.link, class: "underline" %></li>
+      <li><i class="fa fa-link"></i><%= link_to @news_article.link, @news_article.link, class: "underline" %></li>
       <% end %>
     </ul>
   </div>

@@ -1,18 +1,18 @@
 section.output {
   @include media($large-screen) {
     @include outer-container;
-    @include span-columns(8);
-    @include shift(2);
   }
 
   .boxes {
     padding-top: em(54);
+    @include media($large-screen) {
+      @include span-columns(12);
+    }
   }
 
   .box {
     @include media($large-screen) {
-      @include span-columns(3 of 6);
-      @include omega(2n);
+      @include span-columns(4 of 12);
     }
     margin-bottom: em(81);
     margin-right: em(36);

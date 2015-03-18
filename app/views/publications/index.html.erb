@@ -28,17 +28,6 @@
       </ul>
     </div>
     <div class="box">
-      <p><i class="fa fa-university large"></i></p>
-      <h2>Valorisatie Output</h2>
-      <ul>
-        <% @publications.each do |publication| %>
-          <% if publication.category.name == "valorisatie output" %>
-            <li><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></li>
-          <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <div class="box">
       <p><i class="fa fa-file-powerpoint-o large"></i></p>
       <h2>Presentaties</h2>
       <ul>

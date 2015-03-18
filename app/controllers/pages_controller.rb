@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def english
   end
+
+  def contact
+  end
 end

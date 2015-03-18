@@ -102,8 +102,7 @@ div.cta {
 .info {
   @include media($large-screen) {
     @include outer-container;
-    @include span-columns(6);
-    @include shift(1);
+    margin: 0 auto;
   }
 
   @include media($landscape-screen) {

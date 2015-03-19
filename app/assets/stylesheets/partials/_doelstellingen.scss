@@ -1,0 +1,26 @@
+section.doelstellingen {
+  @include outer-container; 
+  
+  .content {
+  }
+  .left-col {
+    @include media($large-screen) {
+      @include span-columns(6);
+      float: left;
+      padding-right: em(24);
+    }
+  }
+
+  .right-col {
+    @include media($large-screen) {
+      @include span-columns(6);
+      float: right;
+      padding-left: em(24);
+    }
+  }
+
+  ul { @extend %default-ul; } 
+  ol { @extend %default-ol; } 
+
+  img { float: right; } 
+}

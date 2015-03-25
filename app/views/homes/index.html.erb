@@ -16,7 +16,7 @@
     <div class="grid-items">
       <% @news_articles.each do |article| %>
         <%= link_to news_article_path(article), class: "grid-item", data: { no_turbolink: true } do %> 
-          <%= image_tag attachment_url(article, :image, :fill, 150, 150) %>
+          <%= image_tag attachment_url(article, :image, :fill, 300, 150) %>
           <h1><%= article.title %></h1>
         <% end %>
       <% end %>

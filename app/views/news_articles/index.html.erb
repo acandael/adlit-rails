@@ -7,6 +7,12 @@
       <h1>AdLit Nieuws</h1>
     </header>
   </div>
+  <div class="filter">
+    <%= form_tag news_path, method: "get", id: "filter", class: "filter" do %>
+    <%= label_tag "Category" %>
+    <%= select "news_article", "news_category", options_for_select(options_for_newscategories, selected: @selected), {prompt: 'All'}, onchange: "$('#filter').submit();" %>
+  <% end %>
+  </div>
   <div class="articles">
     <% @news_articles.each do |article| %>
       <article class="news-item">

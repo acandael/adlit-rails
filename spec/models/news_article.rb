@@ -3,6 +3,7 @@ require 'rails_helper'
 describe NewsArticle do
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:body) }
+  it { should belong_to(:news_category) }
 
   it "accepts properly formatted links" do
     links = %w[http://www.somewebsite.com http://somewebsite.com]
@@ -62,7 +63,7 @@ describe NewsArticle do
       
     end
     it "returns only the six most recent news articles" do
-      expect(NewsArticle.recent(6)).not_to include(@article7)
+      expect(NewsArticle.recent(6)).not_to include(@article1)
     end
 
   end

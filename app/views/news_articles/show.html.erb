@@ -8,7 +8,7 @@
   </div>
   <header>
     <h1><%= @news_article.title %></h1>
-    <p class="date"><time datetime="<%= @news_article.created_at %>"><%= @news_article.created_at.strftime('%d %B %Y') %></time></p>
+    <p class="date"><time datetime="<%= @news_article.created_at %>"><%= @news_article.created_at.strftime('%d %B %Y') %></time> | <%= @news_article.news_category.name %></p>
   </header>
   <aside>
     <%= image_tag attachment_url(@news_article, :image, :fill, 400, 217) %> 

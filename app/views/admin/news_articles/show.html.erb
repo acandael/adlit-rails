@@ -10,6 +10,13 @@
     <p><%= @news_article.title %></p>
   </div>
   <div class="property">
+    <p><strong>Category:</strong></p>
+    <p>
+    <% if @news_article.news_category.present? %>
+      <%= @news_article.news_category.name %></p>
+    <% end %>
+  </div>
+  <div class="property">
     <p><strong>Body:</strong></p>
     <p>
      <%= @news_article.body %>

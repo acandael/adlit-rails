@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "homes#index"
   get 'news', to: 'news_articles#index'
   get 'nieuws/:id', to: 'news_articles#show', as: 'news_article'
+  get 'filter_news/:news_category_id', to: 'news_articles#filter', as: 'filter_news'
   get 'team', to: 'members#index'
   get 'team/:id', to: 'members#show', as: 'member'
   get 'output', to: 'publications#index'

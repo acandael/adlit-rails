@@ -4,7 +4,7 @@ feature 'Admin interacts with news' do
 
   let(:user) { User.create!(user_attributes) } 
   let!(:newsarticle1) { NewsArticle.create!(newsarticle_attributes) }
-  let!(:newsarticle2) { NewsArticle.create(title: "Ello, social netwerken zonder reclame", body: "Er heerst heel wat buzz op het Internet.. There is a new player in social media!") }
+  let!(:newsarticle2) { NewsArticle.create(title: "Ello, social netwerken zonder reclame",  body: "Er heerst heel wat buzz op het Internet.. There is a new player in social media!") }
 
   before do
     sign_in(user)

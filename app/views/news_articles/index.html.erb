@@ -16,7 +16,7 @@
         <div class="content">
           <header>
             <h1><%= link_to article.title, news_article_path(article) %></h1>
-            <p class="date"><time datetime="<%= article.created_at %>"><%= article.created_at.strftime('%d %B %Y') %></time></p>
+            <p class="date"><time datetime="<%= article.created_at %>"><%= article.created_at.strftime('%d %B %Y') %></time> | <% if article.news_category.present? %><%= link_to article.news_category.name, filter_news_path(article.news_category_id) %> <% end %></p>
           </header>
           <p class="summary"><%= truncate(article.body, length: 150, separator: ' ') %></p>
         </div>

@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe 'viewing an individual news article' do
 
-  let!(:newsarticle) { NewsArticle.create!(newsarticle_attributes(title: "newsarticle")) } 
+  let(:newscategory) { NewsCategory.create(name: "aanbevolen") }
+  let!(:newsarticle) { NewsArticle.create!(newsarticle_attributes(title: "newsarticle", news_category: newscategory)) } 
 
   it 'shows the news article details' do
     visit news_path
@@ -11,6 +12,7 @@ describe 'viewing an individual news article' do
 
     expect(current_path).to eq(news_article_path(newsarticle))
     expect(page).to have_text(newsarticle.title)
+    expect(page).to have_text(newscategory.name)
     expect(page).to have_text(newsarticle.created_at.strftime('%d %B %Y'))
     expect(page).to have_selector("img[src$='#{newsarticle.image}']")
     expect(page).to have_text(newsarticle.body)

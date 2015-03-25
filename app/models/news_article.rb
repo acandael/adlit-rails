@@ -1,5 +1,6 @@
 class NewsArticle < ActiveRecord::Base
   before_validation :generate_slug
+  belongs_to :news_category
 
   validates :title, :body, presence: true
   validates :title, uniqueness: true

@@ -6,6 +6,12 @@
   <header>
     <h1><i class="fa fa-newspaper-o"></i>News Articles</h1>
   </header>
+  <div class="filter">
+    <%= form_tag admin_news_articles_path, method: "get", id: "filter", class: "filter" do %>
+    <%= label_tag "Category" %>
+    <%= select "news_article", "news_category", options_for_select(options_for_newscategories, selected: @selected), {prompt: 'All'}, onchange: "$('#filter').submit();" %>
+  <% end %>
+  </div>
   <%= button_to "Add News Article", new_admin_news_article_path, method: "get" %>
   <table class="tables">
     <tbody>

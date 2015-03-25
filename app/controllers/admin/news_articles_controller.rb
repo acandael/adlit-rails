@@ -2,7 +2,12 @@ class Admin::NewsArticlesController < DashboardController
   before_action :set_news_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @news_articles = NewsArticle.order(created_at: :asc)
+    if (category_selected?)
+      @news_articles = NewsArticle.filter_by_category(params[:news_article][:news_category])
+      @selected = params[:news_article].try(:[], :news_category)
+    else
+      @news_articles = NewsArticle.order(created_at: :asc)
+    end
   end
 
   def show
@@ -45,5 +50,9 @@ class Admin::NewsArticlesController < DashboardController
 
   def set_news_article
     @news_article = NewsArticle.find_by!(slug: params[:id])
+  end
+
+  def category_selected?
+    params.has_key?(:news_article) && (params[:news_article][:news_category] != "")
   end
 end

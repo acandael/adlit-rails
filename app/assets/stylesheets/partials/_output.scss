@@ -12,7 +12,8 @@ section.output {
 
   .box {
     @include media($large-screen) {
-      @include span-columns(4 of 12);
+      @include span-columns(3 of 12);
+      @include shift(1);
     }
     margin-bottom: em(81);
     margin-right: em(36);

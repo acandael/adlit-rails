@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
   def index
-    @members = Member.by_organization
+    @members = Member.order_by_position
   end
 
   def show

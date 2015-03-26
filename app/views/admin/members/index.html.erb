@@ -7,14 +7,14 @@
     <h1><i class="fa fa-users"></i>Team Members</h1>
   </header>
   <%= button_to "Add New Member", new_admin_member_path, method: "get" %>
-  <table class="tables">
-    <tbody>
+  <table id="members" class="tables">
+    <tbody data-update-url="<%= sort_admin_members_url %>">
       <% @members.each do |member| %>
-        <tr>
+        <%= content_tag_for :tr, member do %>
           <td><%= link_to member.name, admin_member_path(member) %></td>
           <td><%= link_to 'Edit', edit_admin_member_path(member) %> | <%= link_to "Delete", admin_member_path(member), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+        <% end %>
+      <% end %>
     </tbody>
   </table>
 </section>

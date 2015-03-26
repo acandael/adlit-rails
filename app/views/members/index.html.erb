@@ -10,7 +10,7 @@
   </div>
   <div class="members">
     <% @members.each do |member| %>
-      <div class="member" data-mh="block">
+      <div class="team-member" data-mh="block">
         <%= link_to member_path(member) do %>
           <%= image_tag attachment_url(member, :image, :fill, 250, 250) %> 
         <% end %>

@@ -10,7 +10,7 @@ class Member < ActiveRecord::Base
   attachment :image, type: :image
 
   scope :by_organization, -> { order(organization: :asc) }
-  scope :by_name, -> { order(name: :asc) }
+  scope :order_by_position, ->{ order(:position) }
 
   def generate_slug
     self.slug ||= name.parameterize if name

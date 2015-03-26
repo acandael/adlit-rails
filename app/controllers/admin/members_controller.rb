@@ -2,7 +2,7 @@ class Admin::MembersController < DashboardController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = Member.by_name
+    @members = Member.order_by_position
   end
 
   def show
@@ -35,6 +35,13 @@ class Admin::MembersController < DashboardController
   def destroy
     @member.destroy
     redirect_to admin_members_path, notice: "Member successfully deleted!"
+  end
+
+  def sort
+    params[:member].each_with_index do |id, index|
+      Member.where(id: id).update_all({position: index+1})
+    end
+    render nothing: true
   end
 
   private

@@ -6,13 +6,16 @@ aside {
   }
 }
 
-
-
 section.contact {
   @include outer-container;
     article {
       @include media($large-screen) {
-        @include span-columns(8);
+        @include span-columns(7);
+        @include shift(1);
       }
+  }
+
+  header {
+    margin-bottom: em(54);
   }
 }

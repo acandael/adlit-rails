@@ -1,3 +1,18 @@
 a:hover { color: $action-color; }
 .box { margin-bottom: em(54); }
-aside { float: right; }
+aside { 
+  @include media($large-screen) {
+    float: right;
+  }
+}
+
+
+
+section.contact {
+  @include outer-container;
+    article {
+      @include media($large-screen) {
+        @include span-columns(8);
+      }
+  }
+}

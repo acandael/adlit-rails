@@ -3,10 +3,10 @@ class Admin::NewsArticlesController < DashboardController
 
   def index
     if (category_selected?)
-      @news_articles = NewsArticle.filter_by_category(params[:news_article][:news_category])
+      @news_articles = NewsArticle.filter_by_category(params[:news_article][:news_category]).page(params[:page]).per(10)
       @selected = params[:news_article].try(:[], :news_category)
     else
-      @news_articles = NewsArticle.order(created_at: :asc)
+      @news_articles = NewsArticle.order(created_at: :asc).page(params[:page]).per(10)
     end
   end
 

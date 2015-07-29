@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325142623) do
+ActiveRecord::Schema.define(version: 20150729072608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150325142623) do
     t.string  "function"
     t.string  "slug"
     t.integer "position"
+    t.string  "image_content_type"
   end
 
   create_table "news_articles", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150325142623) do
     t.string   "slug"
     t.string   "document_filename"
     t.integer  "news_category_id"
+    t.string   "image_content_type"
   end
 
   add_index "news_articles", ["news_category_id"], name: "index_news_articles_on_news_category_id", using: :btree

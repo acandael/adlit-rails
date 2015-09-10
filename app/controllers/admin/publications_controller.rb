@@ -2,7 +2,7 @@ class Admin::PublicationsController < DashboardController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   def index
-    @publications = Publication.all
+    @publications = Publication.all.order("created_at asc")
   end
 
   def show

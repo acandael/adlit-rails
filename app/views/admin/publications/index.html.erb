@@ -6,6 +6,12 @@
   <header>
     <h1><i class="fa fa-file"></i>Publications</h1>
   </header>
+  <div class="filter">
+    <%= form_tag admin_publications_path, method: "get", id: "filter", class: "filter" do %>
+    <%= label_tag "Category" %>
+    <%= select "publication", "category", options_for_select(options_for_categories, selected: @selected), {prompt: 'All'}, onchange: "$('#filter').submit();" %>
+  <% end %>
+  </div>
   <%= button_to "Add New Publication", new_admin_publication_path, method: "get" %>
   <table class="tables">
     <tbody>

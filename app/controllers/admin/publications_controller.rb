@@ -2,7 +2,12 @@ class Admin::PublicationsController < DashboardController
   before_action :set_publication, only: [:show, :edit, :update, :destroy]
 
   def index
-    @publications = Publication.all.order("created_at asc")
+    if (category_selected?)
+      @publications = Publication.filter_by_category(params[:publication][:category])
+      @selected = params[:publication].try(:[], :publication)
+    else
+      @publications = Publication.all.order("created_at asc")
+    end
   end
 
   def show
@@ -45,5 +50,9 @@ class Admin::PublicationsController < DashboardController
 
   def set_publication
     @publication = Publication.find(params[:id])
+  end
+
+  def category_selected?
+    params.has_key?(:publication) && (params[:publication][:category] != "")
   end
 end

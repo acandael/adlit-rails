@@ -1,6 +1,6 @@
 class PublicationsController < ApplicationController
   def index
-    @publications = Publication.all
+    @publications = Publication.order(:category_id)
   end
 
   def sort

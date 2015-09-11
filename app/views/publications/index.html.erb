@@ -5,7 +5,7 @@
     <h1>AdLit Output</h1>
   </header>
   <div class="boxes">
-      <% @publications.group_by { |p| p.category.name }.each do |category, publications| %>
+      <% @publications.order('created_at desc').group_by { |p| p.category.name }.each do |category, publications| %>
         <div class="box">
         <h2><%= category %></h2>
         <% publications.take(3).each do |publication| %>

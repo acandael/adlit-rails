@@ -4,7 +4,7 @@ class Admin::PublicationsController < DashboardController
   def index
     if (category_selected?)
       @publications = Publication.filter_by_category(params[:publication][:category])
-      @selected = params[:publication].try(:[], :publication)
+      @selected = params[:publication].try(:[], :category)
     else
       @publications = Publication.all.order("created_at asc")
     end

@@ -9,8 +9,6 @@ describe "viewing the list of publications" do
   let!(:publication3) {Publication.create!(title: "Het mediabezit en -gebruik bij minderjarigen anno 2014: de rol van de socio-economische status", category: category_3, document: "document3.doc")}
 
   it "shows the publications" do
-
-
     visit output_path
 
     expect(page).to have_text(publication1.title)

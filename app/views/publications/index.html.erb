@@ -5,11 +5,15 @@
     <h1>AdLit Output</h1>
   </header>
   <div class="boxes">
-      <% @publications.order('created_at desc').group_by { |p| p.category.name }.each do |category, publications| %>
+      <% @publications.group_by { |p| p.category.name }.each do |category, publications| %>
         <div class="box">
         <h2><%= category %></h2>
         <% publications.take(3).each do |publication| %>
+          <% if publication.created_at <  25.days.ago %>
+            <p><span class="green">nieuw!</span>&nbsp;<i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></p>
+        <% else %>
           <p><i class="fa fa-download"></i><%= link_to publication.title, attachment_url(publication, :document) %></p>
+        <% end %>
         <% end %>
         <p><%= link_to "Alle #{category}", publications_path(category), class: "underline" %></p>
         </div>

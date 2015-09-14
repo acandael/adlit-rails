@@ -37,6 +37,13 @@ section.output {
     float: right;
     font-weight: 600;
   }
+
+  .green {
+    color: darken($action-color, 5);
+    font-weight: 700;
+    font-size: $base-font-size * .7;
+    text-transform: uppercase;
+  }
 }
 
 

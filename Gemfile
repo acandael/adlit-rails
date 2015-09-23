@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.2'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -22,7 +22,7 @@ gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
@@ -61,6 +61,8 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails', '~> 3.1.0'
+  gem 'bundler-audit'
+  gem 'brakeman', :require => false
 end
 
 group :test do

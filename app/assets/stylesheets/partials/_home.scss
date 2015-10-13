@@ -60,7 +60,7 @@ div.cta {
   @include media($large-screen) {
     @include outer-container;
     @include span-columns(8);
-    @include shift(5);
+    @include shift(4);
     top: 85%;
     left: 0;
   }
@@ -76,6 +76,17 @@ div.cta {
   p {
     font-size: $base-font-size * 1.6;
     font-weight: 600;
+  }
+
+  form {
+    float: left;
+    margin-right: em(24);
+    margin-bottom: em(24);
+  }
+
+  button {
+    width: 300px;
+    height: 50px;
   }
 }
 

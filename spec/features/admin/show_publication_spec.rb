@@ -4,7 +4,7 @@ describe 'admin views an individual publication' do
 
   let(:user) { User.create!(user_attributes) }
   let!(:category) { Category.create!(name: "reports") } 
-  let!(:publication) { Publication.create!(publication_attributes(category_id: category.id)) }
+  let!(:publication) { Publication.create!(publication_attributes(year: 2015, category_id: category.id)) }
 
   before do
     sign_in(user)

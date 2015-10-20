@@ -3,8 +3,10 @@ class Publication < ActiveRecord::Base
 
   scope :sort_by_category, ->(category_id){ all.where(category_id: category_id).order('created_at desc') }
   scope :filter_by_category, ->(category){ filter(category).order(:title) }
+  scope :grouped_by_year, ->{ order(year: :desc).group_by { |p| p.year} }
 
   validates :title, presence: true
+  validates :year, numericality: true
 
   attachment :document
 

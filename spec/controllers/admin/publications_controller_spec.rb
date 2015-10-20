@@ -5,7 +5,7 @@ describe Admin::PublicationsController do
   let!(:category) { Category.create!(name: "presentaties") }
   
   before do
-    @publication = Publication.create!(publication_attributes(category_id: category.id))
+    @publication = Publication.create!(publication_attributes(year: 2015, category_id: category.id))
   end
 
   context "when not signed in" do

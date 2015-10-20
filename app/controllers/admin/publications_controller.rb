@@ -45,7 +45,7 @@ class Admin::PublicationsController < DashboardController
   private
 
   def publication_params
-    params.require(:publication).permit(:title, :category_id, :document, :remove_document)
+    params.require(:publication).permit(:title, :year, :category_id, :document, :remove_document)
   end
 
   def set_publication

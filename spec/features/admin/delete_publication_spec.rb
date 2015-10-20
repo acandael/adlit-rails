@@ -5,7 +5,7 @@ describe "Deleting a publication" do
   let(:user) { User.create!(user_attributes) }
 
    let!(:category) { Category.create!(name: "presentaties") }
-   let!(:publication) { Publication.create!(title: "Publication Title", category: category) }
+   let!(:publication) { Publication.create!(title: "Publication Title", year: 2015, category: category) }
 
   before do
     sign_in(user)

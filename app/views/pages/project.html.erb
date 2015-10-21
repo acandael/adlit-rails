@@ -10,7 +10,12 @@
     <header>
       <h1>AdLit Project</h1>
     </header>
-    <p>Het doel van het AdLit project (dat staat voor ‘advertising literacy’ of reclamewijsheid) is na te gaan hoe we kinderen en jongeren kunnen leren omgaan met reclame, zodat ze opgroeien tot geïnformeerde consumenten die zelf bewuste keuzes maken. Wil je meer weten over de <%= link_to "doelstellingen", doelstellingen_path, class: "underline" %> van AdLit, bekijk dan hieronder ons filmpje &hellip;</p>
+    <p>Het doel van het AdLit project (dat staat voor ‘advertising literacy’ of reclamewijsheid) is nagaan hoe we kinderen en jongeren kunnen leren omgaan met reclame, zodat ze opgroeien tot geïnformeerde consumenten die zelf bewuste keuzes maken. Wil je meer weten over AdLit, bekijk dan hieronder ons filmpje.</p>
+    <p>
+    <%= link_to doelstellingen_path, class: "underline" do %>
+    Klik hier voor een overzicht van alle doelstellingen.</p>
+    <% end %>
+
   </div>
   <div class="video">
     <video style="width:100%;height:100%;" poster="<%= asset_path 'adlit-filmpje-voorfoto.jpg' %>">

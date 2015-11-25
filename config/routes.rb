@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'signin', to: 'sessions#new' 
   get 'admin', to: 'dashboard#index'
 
+  resources :subscriptions
+
   resource :session
 
   namespace :admin do
@@ -24,5 +26,6 @@ Rails.application.routes.draw do
     end
     resources :publications
     resources :stakeholders
+    resources :subscriptions, only: [:index, :destroy]
   end
 end

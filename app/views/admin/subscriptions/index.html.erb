@@ -1,0 +1,18 @@
+<section class="admin">
+  <div class="breadcrumb">
+    <%= link_to "Dashboard", admin_path %>
+    <a href="javascript:void(0)">Subscriptions</a>
+  </div>
+  <header>
+    <h1><i class="fa fa-newspaper-o"></i>Subscriptions</h1>
+    <strong>number of subscriptions</strong>: <%= @subscriptions.count %>
+  </header>
+  <table>
+    <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= link_to subscription.email %></td>
+        <td><%= link_to "Delete", admin_subscription_path(subscription), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>

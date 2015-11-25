@@ -82,6 +82,16 @@ div.cta {
     margin-right: em(24);
     margin-bottom: em(24);
   }
+  
+  input[type=email] {
+    display: inline;
+    margin-right: em(20);
+    width: 300px;
+  }
+  input[type=submit] { 
+    display: inline;
+    width: 300px;
+  }
 
   button {
     width: 300px;

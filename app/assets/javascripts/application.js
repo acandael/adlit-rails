@@ -14,7 +14,6 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require jquery.fullPage
-//= require turbolinks
 //= require refile
 //= require custom_refile
 //= require image_uploads

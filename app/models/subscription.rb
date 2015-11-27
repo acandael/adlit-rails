@@ -1,6 +1,5 @@
 class Subscription < ActiveRecord::Base
-  validates :email, presence:true, uniqueness: true
-
+  validates :email, presence: true, uniqueness: true, format: /\A\S+@\S+\z/, uniqueness: { case_sensitive: false }
   def self.to_csv
     attributes = %w{email}
 

@@ -18,4 +18,12 @@ RSpec.describe User do
       expect(subscription.errors[:email].any?).to eq(true)
     end
   end
+
+  it "requires a unique, case insensitive email address" do
+    subscription1 = Subscription.create!(email: "test@example.com")
+
+    subscription2 = Subscription.new(email: subscription1.email.upcase)
+    subscription2.valid?
+    expect(subscription2.errors[:email].first).to eq("has already been taken")
+  end
 end

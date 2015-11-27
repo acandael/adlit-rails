@@ -13,14 +13,6 @@
       <form action="http://reclamewijs.ugent.be/" method="get">
         <button>Game jezelf reclamewijs!</button>
       </form>
-      <% if cookies[:saved_subscription] %>
-        Thanks for signing up
-      <% else %>
-        <%= form_for Subscription.new do |f| %>
-          <%= f.email_field :email, placeholder: "Email" %>
-          <%= f.submit "Subscribe to Newsletter" %>
-        <% end %>
-      <% end %>
     </div>
   </div>
   <div class="section news-summary">

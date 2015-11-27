@@ -1,0 +1,13 @@
+<section class="contact">
+  <header>
+    <h1>Subscribe to our newsletter</h1>
+  </header>
+  <% if cookies[:saved_subscription] %>
+    Thanks for signing up
+  <% else %>
+    <%= form_for Subscription.new do |f| %>
+      <%= f.email_field :email, placeholder: "Email" %>
+      <%= f.submit "Subscribe to Newsletter" %>
+    <% end %>
+  <% end %>
+</section>

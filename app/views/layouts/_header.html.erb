@@ -15,6 +15,13 @@
           <li class="nav-link"><i class="fa fa-sign-out nav"></i><%= link_to "Sign Out", session_path, method: :delete %></li>
         <% end %>
       </ul>
+      <% if !cookies[:saved_subscription] %>
+        <% if !current_user %>
+          <%= form_tag subscribe_path, method: "get", id: "subscribe" do  %>
+            <%= submit_tag "Subscribe to Newsletter" %>
+          <% end %>
+        <% end %>
+      <% end %>
     </nav>
   </div>
 </header>

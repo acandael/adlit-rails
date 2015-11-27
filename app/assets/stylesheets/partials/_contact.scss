@@ -18,4 +18,13 @@ section.contact {
   header {
     margin-bottom: em(54);
   }
+
+  form#new_subscription {
+    text-align: center;
+    input[type="email"] {
+      width: 400px;
+      display: inline;
+      margin-right: em(25);
+    }
+  }
 }

@@ -5,7 +5,10 @@
   </div>
   <header>
     <h1><i class="fa fa-newspaper-o"></i>Subscriptions</h1>
-    <strong>number of subscriptions</strong>: <%= @subscriptions.count %>
+    <p><strong>number of subscriptions</strong>: <%= @subscriptions.count %></p>
+    <form action="subscriptions.csv", method="get">
+      <button>Export</button>
+    </form>
   </header>
   <table>
     <% @subscriptions.each do |subscription| %>

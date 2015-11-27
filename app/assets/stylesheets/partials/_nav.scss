@@ -81,6 +81,10 @@ header.navigation {
       $navigation-background: transparentize($dark-gray, 1);
       float: right;
     }
+
+    form#subscribe {
+      display: inline;
+    }
   }
 
   ul.navigation-menu {

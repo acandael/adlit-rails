@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'project', to: 'pages#project'
   get 'doelstellingen', to: 'pages#doelstellingen'
   get 'contact', to: 'pages#contact'
+  get 'subscribe', to: 'pages#subscribe'
   get 'english', to: 'pages#english'
   get 'stakeholders', to: 'stakeholders#index'
   get 'signin', to: 'sessions#new' 
@@ -26,6 +27,6 @@ Rails.application.routes.draw do
     end
     resources :publications
     resources :stakeholders
-    resources :subscriptions, only: [:index, :destroy]
+    resources :subscriptions, only: [:index, :export, :destroy]
   end
 end

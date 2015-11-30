@@ -18,7 +18,7 @@
       <% if !cookies[:saved_subscription] %>
         <% if !current_user %>
           <%= form_tag subscribe_path, method: "get", id: "subscribe" do  %>
-            <%= submit_tag "Subscribe to Newsletter" %>
+            <%= submit_tag "Schrijf je in op nieuwsbrief" %>
           <% end %>
         <% end %>
       <% end %>

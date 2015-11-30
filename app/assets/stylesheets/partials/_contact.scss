@@ -19,8 +19,9 @@ section.contact {
     margin-bottom: em(54);
   }
 
+
   form#new_subscription {
-    text-align: center;
+    margin-bottom: em(24);
     input[type="email"] {
       width: 400px;
       display: inline;

@@ -1,6 +1,8 @@
 <section class="contact">
   <header>
     <h1>Subscribe to our newsletter</h1>
+    <p>Schrijf je in voor onze nieuwsbrief en blijf op de hoogte van nieuw materiaal, informatie, update en nieuwtjes rond AdLit.</p>
+    <p>We sturen niet meer dan drie nieuwsbrieven per jaar.</p>
   </header>
   <% if cookies[:saved_subscription] %>
     Thanks for signing up
@@ -9,5 +11,6 @@
       <%= f.email_field :email, placeholder: "Email" %>
       <%= f.submit "Subscribe" %>
     <% end %>
+    <small>Wanneer je onze nieuwsbrieven niet meer wenst te ontvangen, kan je een mailtje sturen naar info@adlit.be met onderwerp “uitschrijven”.</small>
   <% end %>
 </section>

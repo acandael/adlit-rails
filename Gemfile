@@ -45,7 +45,7 @@ gem 'unicorn'
 gem 'capistrano-rails', group: :development
 
 gem "mini_magick"
-gem 'refile', '~> 0.5.3', require: ["refile/rails", "refile/image_processing"]
+gem 'refile', '~> 0.5.4', require: ["refile/rails", "refile/image_processing"]
 gem "aws-sdk", '< 2'
 gem 'sitemap_generator', '~> 5.0.5'
 gem 'kaminari', '~> 0.16.3'

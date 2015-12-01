@@ -9,5 +9,5 @@ if Rails.env.production?
 
   Refile.cache = Refile::Backend::S3.new(prefix: "cache", **aws)
   Refile.store = Refile::Backend::S3.new(prefix: "store", **aws)
-  Refile.host = "https://d1e4k3tmal57z3.cloudfront.net"
+  Refile.host = "http://d1e4k3tmal57z3.cloudfront.net"
 end

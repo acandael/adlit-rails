@@ -18,7 +18,7 @@
       <% if !cookies[:saved_subscription] %>
         <% if !current_user %>
           <%= form_tag subscribe_path, method: "get", id: "subscribe" do  %>
-            <%= submit_tag "inschrijven voor AdLits nieuwsbrief" %>
+            <%= submit_tag "Inschrijven voor AdLits nieuwsbrief" %>
           <% end %>
         <% end %>
       <% end %>

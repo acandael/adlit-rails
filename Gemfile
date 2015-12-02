@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.3'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -68,7 +68,7 @@ end
 group :test do
   gem 'capybara', '~> 2.4.4'
   gem 'launchy', '~> 2.4.3'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers'
   gem 'database_cleaner'
 end
 

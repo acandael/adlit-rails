@@ -4,6 +4,6 @@
     <%= link_to "All News", admin_news_articles_path %>
     <a href="#">Add News Article</a>
   </div>
-  <%= render 'form' %>
+  <%= render 'form', news_article: @news_article %>
 </section>
 

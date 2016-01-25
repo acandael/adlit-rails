@@ -1,14 +1,14 @@
-<%= form_for [:admin, @news_article], :html => { class: "admin-add" } do |f| %>
+<%= form_for [:admin, news_article], :html => { class: "admin-add" } do |f| %>
   <header>
     <h1><i class="fa fa-newspaper-o"></i>
-      <% if @news_article.new_record? %>
+      <% if news_article.new_record? %>
         New News Article</h1>
       <% else %>
         Edit News Article 
       <% end %>
     </h1>
   </header>
-  <%= render "shared/errors", object: @news_article %>
+  <%= render "shared/errors", object: news_article %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true %>
@@ -26,8 +26,8 @@
 
     <div id="image"></div>
 
-    <% if @news_article.image_id? %>
-      <%= image_tag attachment_url(@news_article, :image, :fill, 150, 150) %>
+    <% if news_article.image_id? %>
+      <%= image_tag attachment_url(news_article, :image, :fill, 150, 150) %>
       <div class="check_box">
         <%= f.check_box :remove_image %>
         <%= f.label :remove_image %>
@@ -40,7 +40,7 @@
     <%= f.label :document %>
     <% if @news_article.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to @news_article.document_filename, attachment_url(@news_article, :document)%>
+      <i class="fa fa-download"></i><%= link_to news_article.document_filename, attachment_url(news_article, :document)%>
       </div>
       <div class="checkbox">
         <%= f.check_box :remove_document %>

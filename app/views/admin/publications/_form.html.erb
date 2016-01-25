@@ -1,14 +1,14 @@
-<%= form_for [:admin, @publication], :html => { class: "admin-add" } do |f| %>
+<%= form_for [:admin, publication], :html => { class: "admin-add" } do |f| %>
   <header>
     <h1><i class="fa fa-user"></i>
-      <% if @publication.new_record? %>
+      <% if publication.new_record? %>
         New Publication</h1>
       <% else %>
         Edit Publication 
       <% end %>
     </h1>
   </header>
-  <%= render "shared/errors", object: @publication %>
+  <%= render "shared/errors", object: publication %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true %>
@@ -23,9 +23,9 @@
   </div>
   <div>
     <%= f.label :document %>
-    <% if @publication.document_id? %>
+    <% if publication.document_id? %>
       <div class="attachment">
-      <i class="fa fa-download"></i><%= link_to @publication.document_filename, attachment_url(@publication, :document)%>
+      <i class="fa fa-download"></i><%= link_to publication.document_filename, attachment_url(publication, :document)%>
       </div>
       <div class="checkbox">
       <%= f.check_box :remove_document %>

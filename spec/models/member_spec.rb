@@ -4,7 +4,7 @@ describe Member do
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:organization) }
-  it { should validate_uniqueness_of(:email).case_insensitive }
+  #it { should validate_uniqueness_of(:email).case_insensitive }
 
   it "accepts properly formatted email addresses" do
     emails = %w[user@example.com first.last@example.com]

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Stakeholder do
   it { should validate_presence_of(:name) }
-  it { should validate_uniqueness_of(:name) }
+  #it { should validate_uniqueness_of(:name) }
   it { should validate_presence_of(:field_id) }
 
   it "accepts properly formatted links" do

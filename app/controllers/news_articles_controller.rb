@@ -4,7 +4,7 @@ class NewsArticlesController < ApplicationController
       @news_articles = NewsArticle.filter_by_category(params[:news_article][:news_category]).page(params[:page]).per(10)
       @selected = params[:news_article].try(:[], :news_category)
     else
-      @news_articles = NewsArticle.order(created_at: :desc).page(params[:page]).per(10)
+      @news_articles = NewsArticle.order(created_at: :desc).includes(:news_category).page(params[:page]).per(10)
     end
   end
 
